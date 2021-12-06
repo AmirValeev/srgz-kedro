@@ -1,0 +1,1857 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The Data Catalog &mdash; Kedro 0.17.5 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/qb1-sphinx-rtd.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme-overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Kedro IO" href="02_kedro_io.html" />
+    <link rel="prev" title="The mini-kedro Kedro starter" href="../04_kedro_project_setup/04_mini_kedro.html" />
+<script type="text/javascript">
+  window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=document.createElement("script");r.type="text/javascript",r.async=!0,r.src="https://cdn.heapanalytics.com/js/heap-"+e+".js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(r,a);for(var n=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","resetIdentity","removeEventProperty","setEventProperties","track","unsetEventProperty"],o=0;o<p.length;o++)heap[p[o]]=n(p[o])};
+  heap.load(2164194004);
+</script>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Kedro
+          
+
+          
+            
+            <img src="../_static/kedro_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.17
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../01_introduction/01_introduction.html">What is Kedro?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01_introduction/01_introduction.html#learn-how-to-use-kedro">Learn how to use Kedro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01_introduction/01_introduction.html#assumptions">Assumptions</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../02_get_started/01_prerequisites.html">Installation prerequisites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02_get_started/01_prerequisites.html#virtual-environments">Virtual environments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../02_get_started/01_prerequisites.html#conda"><code class="docutils literal notranslate"><span class="pre">conda</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02_get_started/01_prerequisites.html#venv-instead-of-conda"><code class="docutils literal notranslate"><span class="pre">venv</span></code> (instead of <code class="docutils literal notranslate"><span class="pre">conda</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02_get_started/01_prerequisites.html#pipenv-instead-of-conda"><code class="docutils literal notranslate"><span class="pre">pipenv</span></code> (instead of <code class="docutils literal notranslate"><span class="pre">conda</span></code>)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../02_get_started/02_install.html">Install Kedro</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02_get_started/02_install.html#verify-a-successful-installation">Verify a successful installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_get_started/02_install.html#install-a-development-version">Install a development version</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../02_get_started/03_hello_kedro.html">A “Hello World” example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02_get_started/03_hello_kedro.html#node">Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_get_started/03_hello_kedro.html#pipeline">Pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_get_started/03_hello_kedro.html#datacatalog">DataCatalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_get_started/03_hello_kedro.html#runner">Runner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_get_started/03_hello_kedro.html#hello-kedro">Hello Kedro!</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../02_get_started/04_new_project.html">Create a new project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02_get_started/04_new_project.html#create-a-new-project-interactively">Create a new project interactively</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_get_started/04_new_project.html#create-a-new-project-from-a-configuration-file">Create a new project from a configuration file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_get_started/04_new_project.html#initialise-a-git-repository">Initialise a <code class="docutils literal notranslate"><span class="pre">git</span></code> repository</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../02_get_started/05_example_project.html">Iris dataset example project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02_get_started/05_example_project.html#create-the-example-project">Create the example project</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../02_get_started/05_example_project.html#project-directory-structure">Project directory structure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../02_get_started/05_example_project.html#conf"><code class="docutils literal notranslate"><span class="pre">conf/</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../02_get_started/05_example_project.html#data"><code class="docutils literal notranslate"><span class="pre">data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../02_get_started/05_example_project.html#src"><code class="docutils literal notranslate"><span class="pre">src</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../02_get_started/05_example_project.html#what-best-practice-should-i-follow-to-avoid-leaking-confidential-data">What best practice should I follow to avoid leaking confidential data?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../02_get_started/05_example_project.html#run-the-example-project">Run the example project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_get_started/05_example_project.html#under-the-hood-pipelines-and-nodes">Under the hood: Pipelines and nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../02_get_started/06_starters.html">Kedro starters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02_get_started/06_starters.html#how-to-use-kedro-starters">How to use Kedro starters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../02_get_started/06_starters.html#starter-aliases">Starter aliases</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../02_get_started/06_starters.html#list-of-official-starters">List of official starters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_get_started/06_starters.html#starter-versioning">Starter versioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_get_started/06_starters.html#use-a-starter-in-interactive-mode">Use a starter in interactive mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_get_started/06_starters.html#use-a-starter-with-a-configuration-file">Use a starter with a configuration file</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../03_tutorial/01_spaceflights_tutorial.html">Kedro spaceflights tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/01_spaceflights_tutorial.html#kedro-project-development-workflow">Kedro project development workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/01_spaceflights_tutorial.html#set-up-the-project-template">1. Set up the project template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/01_spaceflights_tutorial.html#set-up-the-data">2. Set up the data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/01_spaceflights_tutorial.html#create-the-pipeline">3. Create the pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/01_spaceflights_tutorial.html#package-the-project">4. Package the project</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/01_spaceflights_tutorial.html#optional-git-workflow">Optional: Git workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/01_spaceflights_tutorial.html#create-a-project-repository">Create a project repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/01_spaceflights_tutorial.html#submit-your-changes-to-github">Submit your changes to GitHub</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../03_tutorial/02_tutorial_template.html">Set up the spaceflights project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/02_tutorial_template.html#create-a-new-project">Create a new project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/02_tutorial_template.html#install-project-dependencies-with-kedro-install">Install project dependencies with <code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">install</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/02_tutorial_template.html#more-about-project-dependencies">More about project dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/02_tutorial_template.html#add-and-remove-project-specific-dependencies">Add and remove project-specific dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/02_tutorial_template.html#configure-the-project">Configure the project</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../03_tutorial/03_set_up_data.html">Set up the data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/03_set_up_data.html#add-your-datasets-to-data">Add your datasets to <code class="docutils literal notranslate"><span class="pre">data</span></code></a><ul>
+<li class="toctree-l3"><a class="reference external" href="https://quantumblacklabs.github.io/kedro/reviews.csv">reviews.csv</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://quantumblacklabs.github.io/kedro/companies.csv">companies.csv</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://quantumblacklabs.github.io/kedro/shuttles.xlsx">shuttles.xlsx</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/03_set_up_data.html#register-the-datasets">Register the datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/03_set_up_data.html#csv"><code class="docutils literal notranslate"><span class="pre">csv</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/03_set_up_data.html#xlsx"><code class="docutils literal notranslate"><span class="pre">xlsx</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/03_set_up_data.html#custom-data">Custom data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html">Create a pipeline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#data-processing-pipeline">Data processing pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#node-functions">Node functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#assemble-nodes-into-the-data-processing-pipeline">Assemble nodes into the data processing pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#update-the-project-pipeline">Update the project pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#test-the-example">Test the example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#persist-pre-processed-data">Persist pre-processed data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#extend-the-data-processing-pipeline">Extend the data processing pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#id1">Test the example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#data-science-pipeline">Data science pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#update-dependencies">Update dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#create-a-data-science-node">Create a data science node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#configure-the-input-parameters">Configure the input parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#register-the-dataset">Register the dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#assemble-the-data-science-pipeline">Assemble the data science pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#id2">Update the project pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#test-the-pipelines">Test the pipelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#kedro-runners">Kedro runners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#slice-a-pipeline">Slice a pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../03_tutorial/05_package_a_project.html">Package a project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/05_package_a_project.html#add-documentation-to-your-project">Add documentation to your project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/05_package_a_project.html#package-your-project">Package your project</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/05_package_a_project.html#docker-and-airflow">Docker and Airflow</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../03_tutorial/06_visualise_pipeline.html">Visualise pipelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/06_visualise_pipeline.html#install-kedro-viz">Install Kedro-Viz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/06_visualise_pipeline.html#visualise-a-whole-pipeline">Visualise a whole pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/06_visualise_pipeline.html#exit-an-open-visualisation">Exit an open visualisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/06_visualise_pipeline.html#visualise-layers">Visualise layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/06_visualise_pipeline.html#share-a-pipeline">Share a pipeline</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Kedro project setup</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../04_kedro_project_setup/01_dependencies.html">Dependencies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04_kedro_project_setup/01_dependencies.html#project-specific-dependencies">Project-specific dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04_kedro_project_setup/01_dependencies.html#kedro-install"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">install</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04_kedro_project_setup/01_dependencies.html#workflow-dependencies">Workflow dependencies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04_kedro_project_setup/01_dependencies.html#install-dependencies-related-to-the-data-catalog">Install dependencies related to the Data Catalog</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../04_kedro_project_setup/01_dependencies.html#install-dependencies-at-a-group-level">Install dependencies at a group-level</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../04_kedro_project_setup/01_dependencies.html#install-dependencies-at-a-type-level">Install dependencies at a type-level</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../04_kedro_project_setup/02_configuration.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04_kedro_project_setup/02_configuration.html#configuration-root">Configuration root</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04_kedro_project_setup/02_configuration.html#local-and-base-configuration-environments">Local and base configuration environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04_kedro_project_setup/02_configuration.html#additional-configuration-environments">Additional configuration environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04_kedro_project_setup/02_configuration.html#template-configuration">Template configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04_kedro_project_setup/02_configuration.html#jinja2-support">Jinja2 support</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../04_kedro_project_setup/02_configuration.html#parameters">Parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04_kedro_project_setup/02_configuration.html#load-parameters">Load parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04_kedro_project_setup/02_configuration.html#specify-parameters-at-runtime">Specify parameters at runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04_kedro_project_setup/02_configuration.html#use-parameters">Use parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../04_kedro_project_setup/02_configuration.html#credentials">Credentials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04_kedro_project_setup/02_configuration.html#aws-credentials">AWS credentials</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../04_kedro_project_setup/02_configuration.html#configure-kedro-run-arguments">Configure <code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">run</span></code> arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../04_kedro_project_setup/03_session.html">Lifecycle management with <code class="docutils literal notranslate"><span class="pre">KedroSession</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04_kedro_project_setup/03_session.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04_kedro_project_setup/03_session.html#create-a-session">Create a session</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../04_kedro_project_setup/04_mini_kedro.html">The <code class="docutils literal notranslate"><span class="pre">mini-kedro</span></code> Kedro starter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04_kedro_project_setup/04_mini_kedro.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04_kedro_project_setup/04_mini_kedro.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04_kedro_project_setup/04_mini_kedro.html#content">Content</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Data Catalog</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The Data Catalog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-data-catalog-within-kedro-configuration">Using the Data Catalog within Kedro configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#specifying-the-location-of-the-dataset">Specifying the location of the dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-catalog-args-parameters">Data Catalog <code class="docutils literal notranslate"><span class="pre">*_args</span></code> parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-data-catalog-with-the-yaml-api">Using the Data Catalog with the YAML API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-data-catalog-yaml-configuration-file-via-cli">Creating a Data Catalog YAML configuration file via CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-parameters">Adding parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#feeding-in-credentials">Feeding in credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#loading-multiple-datasets-that-have-similar-configuration">Loading multiple datasets that have similar configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transcoding-datasets">Transcoding datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#a-typical-example-of-transcoding">A typical example of transcoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-does-transcoding-work">How does transcoding work?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#transforming-datasets">Transforming datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#applying-built-in-transformers">Applying built-in transformers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transformer-scope">Transformer scope</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#versioning-datasets-and-ml-models">Versioning datasets and ML models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-data-catalog-with-the-code-api">Using the Data Catalog with the Code API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-a-data-catalog">Configuring a Data Catalog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loading-datasets">Loading datasets</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#behind-the-scenes">Behind the scenes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#viewing-the-available-data-sources">Viewing the available data sources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#saving-data">Saving data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#saving-data-to-memory">Saving data to memory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#saving-data-to-a-sql-database-for-querying">Saving data to a SQL database for querying</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#saving-data-in-parquet">Saving data in Parquet</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="02_kedro_io.html">Kedro IO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="02_kedro_io.html#error-handling">Error handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_kedro_io.html#abstractdataset">AbstractDataSet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_kedro_io.html#versioning">Versioning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="02_kedro_io.html#version-namedtuple"><code class="docutils literal notranslate"><span class="pre">version</span></code> namedtuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_kedro_io.html#versioning-using-the-yaml-api">Versioning using the YAML API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_kedro_io.html#versioning-using-the-code-api">Versioning using the Code API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_kedro_io.html#supported-datasets">Supported datasets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="02_kedro_io.html#partitioned-dataset">Partitioned dataset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="02_kedro_io.html#partitioned-dataset-definition">Partitioned dataset definition</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="02_kedro_io.html#dataset-definition">Dataset definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_kedro_io.html#partitioned-dataset-credentials">Partitioned dataset credentials</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="02_kedro_io.html#partitioned-dataset-load">Partitioned dataset load</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_kedro_io.html#partitioned-dataset-save">Partitioned dataset save</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_kedro_io.html#incremental-loads-with-incrementaldataset">Incremental loads with <code class="docutils literal notranslate"><span class="pre">IncrementalDataSet</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="02_kedro_io.html#incremental-dataset-load">Incremental dataset load</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_kedro_io.html#incremental-dataset-save">Incremental dataset save</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_kedro_io.html#incremental-dataset-confirm">Incremental dataset confirm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_kedro_io.html#checkpoint-configuration">Checkpoint configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_kedro_io.html#special-checkpoint-config-keys">Special checkpoint config keys</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Nodes and pipelines</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../06_nodes_and_pipelines/01_nodes.html">Nodes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06_nodes_and_pipelines/01_nodes.html#how-to-create-a-node">How to create a node</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../06_nodes_and_pipelines/01_nodes.html#node-definition-syntax">Node definition syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_nodes_and_pipelines/01_nodes.html#syntax-for-input-variables">Syntax for input variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_nodes_and_pipelines/01_nodes.html#syntax-for-output-variables">Syntax for output variables</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../06_nodes_and_pipelines/01_nodes.html#how-to-tag-a-node">How to tag a node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_nodes_and_pipelines/01_nodes.html#how-to-run-a-node">How to run a node</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../06_nodes_and_pipelines/02_pipeline_introduction.html">Pipelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06_nodes_and_pipelines/02_pipeline_introduction.html#how-to-build-a-pipeline">How to build a pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../06_nodes_and_pipelines/02_pipeline_introduction.html#how-to-tag-a-pipeline">How to tag a pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_nodes_and_pipelines/02_pipeline_introduction.html#how-to-merge-multiple-pipelines">How to merge multiple pipelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_nodes_and_pipelines/02_pipeline_introduction.html#information-about-the-nodes-in-a-pipeline">Information about the nodes in a pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_nodes_and_pipelines/02_pipeline_introduction.html#information-about-pipeline-inputs-and-outputs">Information about pipeline inputs and outputs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../06_nodes_and_pipelines/02_pipeline_introduction.html#bad-pipelines">Bad pipelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../06_nodes_and_pipelines/02_pipeline_introduction.html#pipeline-with-bad-nodes">Pipeline with bad nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_nodes_and_pipelines/02_pipeline_introduction.html#pipeline-with-circular-dependencies">Pipeline with circular dependencies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../06_nodes_and_pipelines/03_modular_pipelines.html">Modular pipelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06_nodes_and_pipelines/03_modular_pipelines.html#what-are-modular-pipelines">What are modular pipelines?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_nodes_and_pipelines/03_modular_pipelines.html#how-do-i-create-a-modular-pipeline">How do I create a modular pipeline?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_nodes_and_pipelines/03_modular_pipelines.html#recommendations">Recommendations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_nodes_and_pipelines/03_modular_pipelines.html#how-to-share-a-modular-pipeline">How to share a modular pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../06_nodes_and_pipelines/03_modular_pipelines.html#package-a-modular-pipeline">Package a modular pipeline</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../06_nodes_and_pipelines/03_modular_pipelines.html#package-multiple-modular-pipelines">Package multiple modular pipelines</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../06_nodes_and_pipelines/03_modular_pipelines.html#pull-a-modular-pipeline">Pull a modular pipeline</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../06_nodes_and_pipelines/03_modular_pipelines.html#pull-multiple-modular-pipelines">Pull multiple modular pipelines</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../06_nodes_and_pipelines/03_modular_pipelines.html#a-modular-pipeline-example-template">A modular pipeline example template</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../06_nodes_and_pipelines/03_modular_pipelines.html#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_nodes_and_pipelines/03_modular_pipelines.html#datasets">Datasets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../06_nodes_and_pipelines/03_modular_pipelines.html#how-to-connect-existing-pipelines">How to connect existing pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_nodes_and_pipelines/03_modular_pipelines.html#how-to-use-a-modular-pipeline-twice">How to use a modular pipeline twice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_nodes_and_pipelines/03_modular_pipelines.html#how-to-use-a-modular-pipeline-with-different-parameters">How to use a modular pipeline with different parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_nodes_and_pipelines/03_modular_pipelines.html#how-to-clean-up-a-modular-pipeline">How to clean up a modular pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../06_nodes_and_pipelines/04_run_a_pipeline.html">Run a pipeline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06_nodes_and_pipelines/04_run_a_pipeline.html#runners">Runners</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../06_nodes_and_pipelines/04_run_a_pipeline.html#sequentialrunner"><code class="docutils literal notranslate"><span class="pre">SequentialRunner</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_nodes_and_pipelines/04_run_a_pipeline.html#parallelrunner"><code class="docutils literal notranslate"><span class="pre">ParallelRunner</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../06_nodes_and_pipelines/04_run_a_pipeline.html#multiprocessing">Multiprocessing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../06_nodes_and_pipelines/04_run_a_pipeline.html#multithreading">Multithreading</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../06_nodes_and_pipelines/04_run_a_pipeline.html#custom-runners">Custom runners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_nodes_and_pipelines/04_run_a_pipeline.html#load-and-save-asynchronously">Load and save asynchronously</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_nodes_and_pipelines/04_run_a_pipeline.html#run-a-pipeline-by-name">Run a pipeline by name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_nodes_and_pipelines/04_run_a_pipeline.html#run-pipelines-with-io">Run pipelines with IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_nodes_and_pipelines/04_run_a_pipeline.html#output-to-a-file">Output to a file</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../06_nodes_and_pipelines/05_slice_a_pipeline.html">Slice a pipeline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06_nodes_and_pipelines/05_slice_a_pipeline.html#slice-a-pipeline-by-providing-inputs">Slice a pipeline by providing inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_nodes_and_pipelines/05_slice_a_pipeline.html#slice-a-pipeline-by-specifying-nodes">Slice a pipeline by specifying nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_nodes_and_pipelines/05_slice_a_pipeline.html#slice-a-pipeline-by-specifying-final-nodes">Slice a pipeline by specifying final nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_nodes_and_pipelines/05_slice_a_pipeline.html#slice-a-pipeline-with-tagged-nodes">Slice a pipeline with tagged nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_nodes_and_pipelines/05_slice_a_pipeline.html#slice-a-pipeline-by-running-specified-nodes">Slice a pipeline by running specified nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_nodes_and_pipelines/05_slice_a_pipeline.html#how-to-recreate-missing-outputs">How to recreate missing outputs</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Extend Kedro</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../07_extend_kedro/01_common_use_cases.html">Common use cases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/01_common_use_cases.html#use-case-1-how-to-add-extra-behaviour-to-kedro-s-execution-timeline">Use Case 1: How to add extra behaviour to Kedro’s execution timeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/01_common_use_cases.html#use-case-2-how-to-integrate-kedro-with-additional-data-sources">Use Case 2: How to integrate Kedro with additional data sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/01_common_use_cases.html#use-case-3-how-to-add-cli-commands-that-are-reusable-across-projects">Use Case 3: How to add CLI commands that are reusable across projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/01_common_use_cases.html#use-case-4-how-to-customise-the-initial-boilerplate-of-your-project">Use Case 4: How to customise the initial boilerplate of your project</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../07_extend_kedro/02_hooks.html">Hooks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/02_hooks.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/02_hooks.html#concepts">Concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07_extend_kedro/02_hooks.html#hook-specification">Hook specification</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../07_extend_kedro/02_hooks.html#execution-timeline-hooks">Execution timeline Hooks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../07_extend_kedro/02_hooks.html#registration-hooks">Registration Hooks</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../07_extend_kedro/02_hooks.html#hook-implementation">Hook implementation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../07_extend_kedro/02_hooks.html#registering-your-hook-implementations-with-kedro">Registering your Hook implementations with Kedro</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../07_extend_kedro/02_hooks.html#disable-auto-registered-plugins-hooks">Disable auto-registered plugins’ Hooks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/02_hooks.html#common-use-cases">Common use cases</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07_extend_kedro/02_hooks.html#use-hooks-to-extend-a-node-s-behaviour">Use Hooks to extend a node’s behaviour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07_extend_kedro/02_hooks.html#use-hooks-to-customise-the-dataset-load-and-save-methods">Use Hooks to customise the dataset load and save methods</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/02_hooks.html#under-the-hood">Under the hood</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/02_hooks.html#hooks-examples">Hooks examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07_extend_kedro/02_hooks.html#add-data-validation">Add data validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07_extend_kedro/02_hooks.html#add-observability-to-your-pipeline">Add observability to your pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07_extend_kedro/02_hooks.html#add-metrics-tracking-to-your-model">Add metrics tracking to your model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07_extend_kedro/02_hooks.html#modify-node-inputs-using-before-node-run-hook">Modify node inputs using <code class="docutils literal notranslate"><span class="pre">before_node_run</span></code> hook</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../07_extend_kedro/03_custom_datasets.html">Custom datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/03_custom_datasets.html#scenario">Scenario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/03_custom_datasets.html#project-setup">Project setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/03_custom_datasets.html#the-anatomy-of-a-dataset">The anatomy of a dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/03_custom_datasets.html#implement-the-load-method-with-fsspec">Implement the <code class="docutils literal notranslate"><span class="pre">_load</span></code> method with <code class="docutils literal notranslate"><span class="pre">fsspec</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/03_custom_datasets.html#implement-the-save-method-with-fsspec">Implement the <code class="docutils literal notranslate"><span class="pre">_save</span></code> method with <code class="docutils literal notranslate"><span class="pre">fsspec</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/03_custom_datasets.html#implement-the-describe-method">Implement the <code class="docutils literal notranslate"><span class="pre">_describe</span></code> method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/03_custom_datasets.html#the-complete-example">The complete example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/03_custom_datasets.html#integration-with-partitioneddataset">Integration with <code class="docutils literal notranslate"><span class="pre">PartitionedDataSet</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/03_custom_datasets.html#versioning">Versioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/03_custom_datasets.html#thread-safety">Thread-safety</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/03_custom_datasets.html#how-to-handle-credentials-and-different-filesystems">How to handle credentials and different filesystems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/03_custom_datasets.html#how-to-contribute-a-custom-dataset-implementation">How to contribute a custom dataset implementation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../07_extend_kedro/04_plugins.html">Kedro plugins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/04_plugins.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/04_plugins.html#example-of-a-simple-plugin">Example of a simple plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/04_plugins.html#working-with-click">Working with <code class="docutils literal notranslate"><span class="pre">click</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/04_plugins.html#project-context">Project context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/04_plugins.html#initialisation">Initialisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/04_plugins.html#global-and-project-commands"><code class="docutils literal notranslate"><span class="pre">global</span></code> and <code class="docutils literal notranslate"><span class="pre">project</span></code> commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/04_plugins.html#suggested-command-convention">Suggested command convention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/04_plugins.html#hooks">Hooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/04_plugins.html#cli-hooks">CLI Hooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/04_plugins.html#contributing-process">Contributing process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/04_plugins.html#supported-kedro-plugins">Supported Kedro plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/04_plugins.html#community-developed-plugins">Community-developed plugins</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../07_extend_kedro/05_create_kedro_starters.html">Create a Kedro starter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/05_create_kedro_starters.html#how-to-create-a-kedro-starter">How to create a Kedro starter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/05_create_kedro_starters.html#configuration-variables">Configuration variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../07_extend_kedro/05_create_kedro_starters.html#example-kedro-starter">Example Kedro starter</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../07_extend_kedro/06_transformers.html">Dataset transformers (deprecated)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/06_transformers.html#develop-your-own-dataset-transformer">Develop your own dataset transformer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../07_extend_kedro/07_decorators.html">Decorators (deprecated)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/07_decorators.html#how-to-apply-a-decorator-to-nodes">How to apply a decorator to nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/07_decorators.html#how-to-apply-multiple-decorators-to-nodes">How to apply multiple decorators to nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/07_decorators.html#how-to-apply-a-decorator-to-a-pipeline">How to apply a decorator to a pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_extend_kedro/07_decorators.html#kedro-decorators">Kedro decorators</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Logging</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../08_logging/01_logging.html">Logging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08_logging/01_logging.html#configure-logging">Configure logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08_logging/01_logging.html#use-logging">Use logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08_logging/01_logging.html#logging-for-anyconfig">Logging for <code class="docutils literal notranslate"><span class="pre">anyconfig</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../08_logging/02_experiment_tracking.html">Experiment tracking</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../08_logging/02_experiment_tracking.html#enable-experiment-tracking">Enable experiment tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08_logging/02_experiment_tracking.html#community-solutions">Community solutions</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../09_development/01_set_up_vscode.html">Set up Visual Studio Code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09_development/01_set_up_vscode.html#advanced-for-those-using-venv-virtualenv">Advanced: For those using <code class="docutils literal notranslate"><span class="pre">venv</span></code> / <code class="docutils literal notranslate"><span class="pre">virtualenv</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09_development/01_set_up_vscode.html#setting-up-tasks">Setting up tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09_development/01_set_up_vscode.html#debugging">Debugging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../09_development/01_set_up_vscode.html#advanced-remote-interpreter-debugging">Advanced: Remote Interpreter / Debugging</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../09_development/01_set_up_vscode.html#configuring-the-kedro-catalog-validation-schema">Configuring the Kedro catalog validation schema</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../09_development/02_set_up_pycharm.html">Set up PyCharm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09_development/02_set_up_pycharm.html#set-up-run-configurations">Set up Run configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09_development/02_set_up_pycharm.html#debugging">Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09_development/02_set_up_pycharm.html#advanced-remote-ssh-interpreter">Advanced: Remote SSH interpreter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09_development/02_set_up_pycharm.html#advanced-docker-interpreter">Advanced: Docker interpreter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09_development/02_set_up_pycharm.html#configuring-the-kedro-catalog-validation-schema">Configuring the Kedro catalog validation schema</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../09_development/03_commands_reference.html">Kedro’s command line interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09_development/03_commands_reference.html#autocompletion-optional">Autocompletion (optional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09_development/03_commands_reference.html#invoke-kedro-cli-from-python-optional">Invoke Kedro CLI from Python (optional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09_development/03_commands_reference.html#kedro-commands">Kedro commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09_development/03_commands_reference.html#global-kedro-commands">Global Kedro commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../09_development/03_commands_reference.html#get-help-on-kedro-commands">Get help on Kedro commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../09_development/03_commands_reference.html#confirm-the-kedro-version">Confirm the Kedro version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../09_development/03_commands_reference.html#confirm-kedro-information">Confirm Kedro information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../09_development/03_commands_reference.html#create-a-new-kedro-project">Create a new Kedro project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../09_development/03_commands_reference.html#open-the-kedro-documentation-in-your-browser">Open the Kedro documentation in your browser</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../09_development/03_commands_reference.html#project-specific-kedro-commands">Project-specific Kedro commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../09_development/03_commands_reference.html#project-setup">Project setup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../09_development/03_commands_reference.html#build-the-project-s-dependency-tree">Build the project’s dependency tree</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../09_development/03_commands_reference.html#install-all-package-dependencies">Install all package dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../09_development/03_commands_reference.html#run-the-project">Run the project</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../09_development/03_commands_reference.html#modifying-a-kedro-run">Modifying a <code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">run</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../09_development/03_commands_reference.html#deploy-the-project">Deploy the project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../09_development/03_commands_reference.html#pull-a-modular-pipeline">Pull a modular pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../09_development/03_commands_reference.html#project-quality">Project quality</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../09_development/03_commands_reference.html#build-the-project-documentation">Build the project documentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../09_development/03_commands_reference.html#lint-your-project">Lint your project</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../09_development/03_commands_reference.html#test-your-project">Test your project</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../09_development/03_commands_reference.html#project-development">Project development</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../09_development/03_commands_reference.html#modular-pipelines">Modular pipelines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../09_development/03_commands_reference.html#datasets">Datasets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../09_development/03_commands_reference.html#data-catalog">Data Catalog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../09_development/03_commands_reference.html#notebooks">Notebooks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../09_development/04_lint.html">Linting your Kedro project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09_development/05_debugging.html">Debugging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../09_development/05_debugging.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09_development/05_debugging.html#debugging-node">Debugging Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../09_development/05_debugging.html#debugging-pipeline">Debugging Pipeline</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Deployment</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../10_deployment/01_deployment_guide.html">Deployment guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/01_deployment_guide.html#deployment-choices">Deployment choices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../10_deployment/02_single_machine.html">Single-machine deployment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/02_single_machine.html#container-based">Container based</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/02_single_machine.html#how-to-use-container-registry">How to use container registry</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/02_single_machine.html#package-based">Package based</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/02_single_machine.html#cli-based">CLI based</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/02_single_machine.html#use-github-workflow-to-copy-your-project">Use GitHub workflow to copy your project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/02_single_machine.html#install-and-run-the-kedro-project">Install and run the Kedro project</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../10_deployment/03_distributed.html">Distributed deployment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/03_distributed.html#containerise-the-pipeline">1. Containerise the pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/03_distributed.html#convert-your-kedro-pipeline-into-targeted-platform-s-primitives">2. Convert your Kedro pipeline into targeted platform’s primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/03_distributed.html#parameterise-the-runs">3. Parameterise the runs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/03_distributed.html#optional-create-starters">4. (Optional) Create starters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../10_deployment/04_argo.html">Deployment with Argo Workflows</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/04_argo.html#why-would-you-use-argo-workflows">Why would you use Argo Workflows?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/04_argo.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/04_argo.html#how-to-run-your-kedro-pipeline-using-argo-workflows">How to run your Kedro pipeline using Argo Workflows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/04_argo.html#containerise-your-kedro-project">Containerise your Kedro project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/04_argo.html#create-argo-workflows-spec">Create Argo Workflows spec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/04_argo.html#submit-argo-workflows-spec-to-kubernetes">Submit Argo Workflows spec to Kubernetes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/04_argo.html#kedro-argo-plugin">Kedro-Argo plugin</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../10_deployment/05_prefect.html">Deployment with Prefect</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/05_prefect.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/05_prefect.html#how-to-run-your-kedro-pipeline-using-prefect">How to run your Kedro pipeline using Prefect</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/05_prefect.html#convert-your-kedro-pipeline-to-prefect-flow">Convert your Kedro pipeline to Prefect flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/05_prefect.html#run-prefect-flow">Run Prefect flow</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../10_deployment/06_kubeflow.html">Deployment with Kubeflow Pipelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/06_kubeflow.html#why-would-you-use-kubeflow-pipelines">Why would you use Kubeflow Pipelines?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/06_kubeflow.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/06_kubeflow.html#how-to-run-your-kedro-pipeline-using-kubeflow-pipelines">How to run your Kedro pipeline using Kubeflow Pipelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/06_kubeflow.html#containerise-your-kedro-project">Containerise your Kedro project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/06_kubeflow.html#create-a-workflow-spec">Create a workflow spec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/06_kubeflow.html#authenticate-kubeflow-pipelines">Authenticate Kubeflow Pipelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/06_kubeflow.html#upload-workflow-spec-and-execute-runs">Upload workflow spec and execute runs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../10_deployment/07_aws_batch.html">Deployment with AWS Batch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/07_aws_batch.html#why-would-you-use-aws-batch">Why would you use AWS Batch?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/07_aws_batch.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/07_aws_batch.html#how-to-run-a-kedro-pipeline-using-aws-batch">How to run a Kedro pipeline using AWS Batch</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/07_aws_batch.html#containerise-your-kedro-project">Containerise your Kedro project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/07_aws_batch.html#provision-resources">Provision resources</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../10_deployment/07_aws_batch.html#create-iam-role">Create IAM Role</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../10_deployment/07_aws_batch.html#create-aws-batch-job-definition">Create AWS Batch job definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../10_deployment/07_aws_batch.html#create-aws-batch-compute-environment">Create AWS Batch compute environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../10_deployment/07_aws_batch.html#create-aws-batch-job-queue">Create AWS Batch job queue</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/07_aws_batch.html#configure-the-credentials">Configure the credentials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/07_aws_batch.html#submit-aws-batch-jobs">Submit AWS Batch jobs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../10_deployment/07_aws_batch.html#create-a-custom-runner">Create a custom runner</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../10_deployment/07_aws_batch.html#set-up-batch-related-configuration">Set up Batch-related configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../10_deployment/07_aws_batch.html#update-cli-implementation">Update CLI implementation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/07_aws_batch.html#deploy">Deploy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../10_deployment/08_databricks.html">Deployment to a Databricks cluster</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/08_databricks.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/08_databricks.html#run-the-kedro-project-with-databricks-connect">Run the Kedro project with Databricks Connect</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/08_databricks.html#project-setup">1. Project setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/08_databricks.html#install-dependencies-and-run-locally">2. Install dependencies and run locally</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/08_databricks.html#create-a-databricks-cluster">3. Create a Databricks cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/08_databricks.html#install-databricks-connect">4. Install Databricks Connect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/08_databricks.html#configure-databricks-connect">5. Configure Databricks Connect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/08_databricks.html#copy-local-data-into-dbfs">6. Copy local data into DBFS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/08_databricks.html#run-the-project">7. Run the project</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/08_databricks.html#run-kedro-project-from-a-databricks-notebook">Run Kedro project from a Databricks notebook</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/08_databricks.html#extra-requirements">Extra requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/08_databricks.html#create-kedro-project">1. Create Kedro project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/08_databricks.html#create-github-personal-access-token">2. Create GitHub personal access token</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/08_databricks.html#create-a-github-repository">3. Create a GitHub repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/08_databricks.html#push-kedro-project-to-the-github-repository">4. Push Kedro project to the GitHub repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/08_databricks.html#configure-the-databricks-cluster">5. Configure the Databricks cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/08_databricks.html#run-your-kedro-project-from-the-databricks-notebook">6. Run your Kedro project from the Databricks notebook</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../10_deployment/09_aws_sagemaker.html">How to integrate Amazon SageMaker into your Kedro pipeline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/09_aws_sagemaker.html#why-would-you-use-amazon-sagemaker">Why would you use Amazon SageMaker?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/09_aws_sagemaker.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/09_aws_sagemaker.html#prepare-the-environment">Prepare the environment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/09_aws_sagemaker.html#install-sagemaker-package-dependencies">Install SageMaker package dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/09_aws_sagemaker.html#create-sagemaker-execution-role">Create SageMaker execution role</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/09_aws_sagemaker.html#create-s3-bucket">Create S3 bucket</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/09_aws_sagemaker.html#update-the-kedro-project">Update the Kedro project</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/09_aws_sagemaker.html#create-the-configuration-environment">Create the configuration environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/09_aws_sagemaker.html#update-the-project-hooks">Update the project hooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/09_aws_sagemaker.html#update-the-data-science-pipeline">Update the data science pipeline</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../10_deployment/09_aws_sagemaker.html#create-node-functions">Create node functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../10_deployment/09_aws_sagemaker.html#update-the-pipeline-definition">Update the pipeline definition</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/09_aws_sagemaker.html#create-the-sagemaker-entry-point">Create the SageMaker entry point</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/09_aws_sagemaker.html#run-the-project">Run the project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/09_aws_sagemaker.html#cleanup">Cleanup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../10_deployment/10_aws_step_functions.html">How to deploy your Kedro pipeline with AWS Step Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/10_aws_step_functions.html#why-would-you-run-a-kedro-pipeline-with-aws-step-functions">Why would you run a Kedro pipeline with AWS Step Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/10_aws_step_functions.html#strategy">Strategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/10_aws_step_functions.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/10_aws_step_functions.html#deployment-process">Deployment process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/10_aws_step_functions.html#step-1-create-new-configuration-environment-to-prepare-a-compatible-datacatalog">Step 1. Create new configuration environment to prepare a compatible <code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/10_aws_step_functions.html#step-2-package-the-kedro-pipeline-as-an-aws-lambda-compliant-docker-image">Step 2. Package the Kedro pipeline as an AWS Lambda-compliant Docker image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/10_aws_step_functions.html#step-3-write-the-deployment-script">Step 3. Write the deployment script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/10_aws_step_functions.html#step-4-deploy-the-pipeline">Step 4. Deploy the pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/10_aws_step_functions.html#limitations">Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/10_aws_step_functions.html#final-thought">Final thought</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../10_deployment/11_airflow_astronomer.html">How to deploy your Kedro pipeline on Apache Airflow with Astronomer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/11_airflow_astronomer.html#strategy">Strategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/11_airflow_astronomer.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/11_airflow_astronomer.html#project-setup">Project Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/11_airflow_astronomer.html#deployment-process">Deployment process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/11_airflow_astronomer.html#step-1-create-new-configuration-environment-to-prepare-a-compatible-datacatalog">Step 1. Create new configuration environment to prepare a compatible <code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/11_airflow_astronomer.html#step-2-package-the-kedro-pipeline-as-an-astronomer-compliant-docker-image">Step 2. Package the Kedro pipeline as an Astronomer-compliant Docker image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/11_airflow_astronomer.html#step-3-convert-the-kedro-pipeline-into-an-airflow-dag-with-kedro-airflow">Step 3. Convert the Kedro pipeline into an Airflow DAG with <code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">airflow</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10_deployment/11_airflow_astronomer.html#step-4-launch-the-local-airflow-cluster-with-astronomer">Step 4. Launch the local Airflow cluster with Astronomer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../10_deployment/11_airflow_astronomer.html#final-thought">Final thought</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Tools integration</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../11_tools_integration/01_pyspark.html">Build a Kedro pipeline with PySpark</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../11_tools_integration/01_pyspark.html#centralise-spark-configuration-in-conf-base-spark-yml">Centralise Spark configuration in <code class="docutils literal notranslate"><span class="pre">conf/base/spark.yml</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11_tools_integration/01_pyspark.html#initialise-a-sparksession-in-custom-project-context-class">Initialise a <code class="docutils literal notranslate"><span class="pre">SparkSession</span></code> in custom project context class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11_tools_integration/01_pyspark.html#use-kedro-s-built-in-spark-datasets-to-load-and-save-raw-data">Use Kedro’s built-in Spark datasets to load and save raw data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.extras.datasets.spark.SparkDataSet.html">spark.SparkDataSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.extras.datasets.spark.SparkJDBCDataSet.html">spark.SparkJDBCDataSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.extras.datasets.spark.SparkHiveDataSet.html">spark.SparkHiveDataSet</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../11_tools_integration/01_pyspark.html#use-memorydataset-for-intermediary-dataframe">Use <code class="docutils literal notranslate"><span class="pre">MemoryDataSet</span></code> for intermediary <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11_tools_integration/01_pyspark.html#use-memorydataset-with-copy-mode-assign-for-non-dataframe-spark-objects">Use <code class="docutils literal notranslate"><span class="pre">MemoryDataSet</span></code> with <code class="docutils literal notranslate"><span class="pre">copy_mode=&quot;assign&quot;</span></code> for non-<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> Spark objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11_tools_integration/01_pyspark.html#tips-for-maximising-concurrency-using-threadrunner">Tips for maximising concurrency using <code class="docutils literal notranslate"><span class="pre">ThreadRunner</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../11_tools_integration/02_ipython.html">Use Kedro with IPython and Jupyter Notebooks/Lab</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../11_tools_integration/02_ipython.html#why-use-a-notebook">Why use a Notebook?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11_tools_integration/02_ipython.html#kedro-and-ipython">Kedro and IPython</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../11_tools_integration/02_ipython.html#load-datacatalog-in-ipython">Load <code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code> in IPython</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../11_tools_integration/02_ipython.html#dataset-versioning">Dataset versioning</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../11_tools_integration/02_ipython.html#kedro-and-jupyter">Kedro and Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11_tools_integration/02_ipython.html#how-to-use-context">How to use <code class="docutils literal notranslate"><span class="pre">context</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../11_tools_integration/02_ipython.html#run-the-pipeline">Run the pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11_tools_integration/02_ipython.html#parameters">Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11_tools_integration/02_ipython.html#load-save-datacatalog-in-jupyter">Load/Save <code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code> in Jupyter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11_tools_integration/02_ipython.html#additional-parameters-for-session-run">Additional parameters for <code class="docutils literal notranslate"><span class="pre">session.run()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../11_tools_integration/02_ipython.html#global-variables">Global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11_tools_integration/02_ipython.html#convert-functions-from-jupyter-notebooks-into-kedro-nodes">Convert functions from Jupyter Notebooks into Kedro nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11_tools_integration/02_ipython.html#ipython-extension">IPython extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../11_tools_integration/02_ipython.html#ipython-loader">IPython loader</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../11_tools_integration/02_ipython.html#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11_tools_integration/02_ipython.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../11_tools_integration/02_ipython.html#troubleshooting-and-faqs">Troubleshooting and FAQs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../11_tools_integration/02_ipython.html#how-can-i-stop-my-notebook-terminating">How can I stop my notebook terminating?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../11_tools_integration/02_ipython.html#why-can-t-i-run-kedro-jupyter-notebook">Why can’t I run <code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">jupyter</span> <span class="pre">notebook</span></code>?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../11_tools_integration/02_ipython.html#how-can-i-reload-the-session-context-catalog-and-startup-error-variables">How can I reload the <code class="docutils literal notranslate"><span class="pre">session</span></code>, <code class="docutils literal notranslate"><span class="pre">context</span></code>, <code class="docutils literal notranslate"><span class="pre">catalog</span></code> and <code class="docutils literal notranslate"><span class="pre">startup_error</span></code> variables?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../11_tools_integration/02_ipython.html#kedro-viz-and-jupyter">Kedro-Viz and Jupyter</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">FAQs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../12_faq/01_faq.html">Frequently asked questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12_faq/01_faq.html#what-is-kedro">What is Kedro?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12_faq/01_faq.html#who-maintains-kedro">Who maintains Kedro?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12_faq/01_faq.html#what-are-the-primary-advantages-of-kedro">What are the primary advantages of Kedro?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12_faq/01_faq.html#how-does-kedro-compare-to-other-projects">How does Kedro compare to other projects?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12_faq/01_faq.html#what-is-data-engineering-convention">What is data engineering convention?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12_faq/01_faq.html#how-do-i-upgrade-kedro">How do I upgrade Kedro?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12_faq/01_faq.html#how-can-i-use-a-development-version-of-kedro">How can I use a development version of Kedro?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12_faq/01_faq.html#how-can-i-find-out-more-about-kedro">How can I find out more about Kedro?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12_faq/01_faq.html#how-can-i-cite-kedro">How can I cite Kedro?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12_faq/01_faq.html#how-can-i-get-my-question-answered">How can I get my question answered?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../12_faq/02_architecture_overview.html">Kedro architecture overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12_faq/02_architecture_overview.html#kedro-project">Kedro project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12_faq/02_architecture_overview.html#kedro-starter">Kedro starter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12_faq/02_architecture_overview.html#kedro-library">Kedro library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12_faq/02_architecture_overview.html#kedro-framework">Kedro framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12_faq/02_architecture_overview.html#kedro-extension">Kedro extension</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../12_faq/03_kedro_principles.html">Kedro Principles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12_faq/03_kedro_principles.html#modularity-at-the-core">1. Modularity at the core ️📦</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12_faq/03_kedro_principles.html#grow-beginners-into-experts">2. Grow beginners into experts 🌱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12_faq/03_kedro_principles.html#user-empathy-without-unfounded-assumptions">3. User empathy without unfounded assumptions 🤝</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12_faq/03_kedro_principles.html#simplicity-means-bare-necessities">4. Simplicity means bare necessities 🍞</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12_faq/03_kedro_principles.html#there-should-be-one-obvious-way-of-doing-things">5. There should be one obvious way of doing things 🎯</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12_faq/03_kedro_principles.html#a-sprinkle-of-magic-is-better-than-a-spoonful-of-it">6. A sprinkle of magic is better than a spoonful of it ✨</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12_faq/03_kedro_principles.html#lean-process-and-lean-product">7. Lean process and lean product 👟</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../13_resources/01_logos.html">Images and icons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../13_resources/01_logos.html#white-background">White background</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../13_resources/01_logos.html#icon">Icon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../13_resources/01_logos.html#icon-with-text">Icon with text</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../13_resources/01_logos.html#black-background">Black background</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../13_resources/01_logos.html#id1">Icon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../13_resources/01_logos.html#id2">Icon with text</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../13_resources/02_glossary.html">Kedro glossary</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../13_resources/02_glossary.html#data-catalog">Data Catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13_resources/02_glossary.html#data-engineering-vs-data-science">Data engineering vs Data science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13_resources/02_glossary.html#kedro">Kedro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13_resources/02_glossary.html#kedrocontext"><code class="docutils literal notranslate"><span class="pre">KedroContext</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13_resources/02_glossary.html#kedrosession"><code class="docutils literal notranslate"><span class="pre">KedroSession</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13_resources/02_glossary.html#kedro-viz">Kedro-Viz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13_resources/02_glossary.html#layers-data-engineering-convention">Layers (data engineering convention)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13_resources/02_glossary.html#modular-pipeline">Modular pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13_resources/02_glossary.html#node">Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13_resources/02_glossary.html#node-execution-order">Node execution order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13_resources/02_glossary.html#pipeline">Pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13_resources/02_glossary.html#pipeline-slicing">Pipeline slicing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13_resources/02_glossary.html#runner">Runner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13_resources/02_glossary.html#starters">Starters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13_resources/02_glossary.html#tags">Tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../13_resources/02_glossary.html#workflow-dependencies">Workflow dependencies</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Contribute to Kedro</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../14_contribution/01_contribute_to_kedro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../14_contribution/02_developer_contributor_guidelines.html">Guidelines for contributing developers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../14_contribution/02_developer_contributor_guidelines.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14_contribution/02_developer_contributor_guidelines.html#before-you-start-development-set-up">Before you start: development set up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14_contribution/02_developer_contributor_guidelines.html#get-started-areas-of-contribution">Get started: areas of contribution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../14_contribution/02_developer_contributor_guidelines.html#core-contribution-process"><code class="docutils literal notranslate"><span class="pre">core</span></code> contribution process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../14_contribution/02_developer_contributor_guidelines.html#extras-contribution-process"><code class="docutils literal notranslate"><span class="pre">extras</span></code> contribution process</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../14_contribution/02_developer_contributor_guidelines.html#create-a-pull-request">Create a pull request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../14_contribution/02_developer_contributor_guidelines.html#pep-8-standards-pylint-and-flake8">PEP-8 Standards (<code class="docutils literal notranslate"><span class="pre">pylint</span></code> and <code class="docutils literal notranslate"><span class="pre">flake8</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../14_contribution/02_developer_contributor_guidelines.html#unit-tests-100-coverage-pytest-pytest-cov">Unit tests, 100% coverage (<code class="docutils literal notranslate"><span class="pre">pytest</span></code>, <code class="docutils literal notranslate"><span class="pre">pytest-cov</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../14_contribution/02_developer_contributor_guidelines.html#e2e-tests-behave">E2E tests (<code class="docutils literal notranslate"><span class="pre">behave</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../14_contribution/02_developer_contributor_guidelines.html#others">Others</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../14_contribution/02_developer_contributor_guidelines.html#hints-on-pre-commit-usage">Hints on pre-commit usage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../14_contribution/02_developer_contributor_guidelines.html#need-help">Need help?</a><ul>
+<li class="toctree-l3"><a class="reference external" href="https://www.firsttimersonly.com/">First timers only</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github">How to contribute to an open source project on GitHub</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../14_contribution/03_backwards_compatibility.html">Backwards compatibility &amp; breaking changes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../14_contribution/03_backwards_compatibility.html#when-should-i-make-a-breaking-change">When should I make a breaking change?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../14_contribution/03_backwards_compatibility.html#the-kedro-release-model">The Kedro release model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../14_contribution/04_documentation_contributor_guidelines.html">Contribute to the Kedro documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../14_contribution/04_documentation_contributor_guidelines.html#how-do-i-rebuild-the-documentation-after-i-make-changes-to-it">How do I rebuild the documentation after I make changes to it?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../14_contribution/04_documentation_contributor_guidelines.html#set-up-to-build-kedro-documentation">Set up to build Kedro documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../14_contribution/04_documentation_contributor_guidelines.html#build-the-documentation">Build the documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../14_contribution/04_documentation_contributor_guidelines.html#extend-kedro-documentation">Extend Kedro documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../14_contribution/04_documentation_contributor_guidelines.html#add-new-pages">Add new pages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../14_contribution/04_documentation_contributor_guidelines.html#move-or-remove-pages">Move or remove pages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../14_contribution/04_documentation_contributor_guidelines.html#create-a-pull-request">Create a pull request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../14_contribution/04_documentation_contributor_guidelines.html#help">Help!</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../14_contribution/04_documentation_contributor_guidelines.html#kedro-documentation-style-guide">Kedro documentation style guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../14_contribution/04_documentation_contributor_guidelines.html#language">Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../14_contribution/04_documentation_contributor_guidelines.html#formatting">Formatting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../14_contribution/04_documentation_contributor_guidelines.html#links">Links</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../14_contribution/04_documentation_contributor_guidelines.html#capitalisation">Capitalisation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../14_contribution/04_documentation_contributor_guidelines.html#bullets">Bullets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../14_contribution/04_documentation_contributor_guidelines.html#notes">Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../14_contribution/04_documentation_contributor_guidelines.html#kedro-lexicon">Kedro lexicon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../14_contribution/04_documentation_contributor_guidelines.html#style">Style</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">API documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../kedro.html">kedro</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.config.html">kedro.config</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.config.ConfigLoader.html">kedro.config.ConfigLoader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.config.TemplatedConfigLoader.html">kedro.config.TemplatedConfigLoader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.config.MissingConfigException.html">kedro.config.MissingConfigException</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.extras.html">kedro.extras</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.extras.datasets.html">kedro.extras.datasets</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.api.APIDataSet.html">kedro.extras.datasets.api.APIDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.biosequence.BioSequenceDataSet.html">kedro.extras.datasets.biosequence.BioSequenceDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.dask.ParquetDataSet.html">kedro.extras.datasets.dask.ParquetDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.email.EmailMessageDataSet.html">kedro.extras.datasets.email.EmailMessageDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.geopandas.GeoJSONDataSet.html">kedro.extras.datasets.geopandas.GeoJSONDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.holoviews.HoloviewsWriter.html">kedro.extras.datasets.holoviews.HoloviewsWriter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.json.JSONDataSet.html">kedro.extras.datasets.json.JSONDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.matplotlib.MatplotlibWriter.html">kedro.extras.datasets.matplotlib.MatplotlibWriter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.networkx.NetworkXDataSet.html">kedro.extras.datasets.networkx.NetworkXDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.CSVDataSet.html">kedro.extras.datasets.pandas.CSVDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.ExcelDataSet.html">kedro.extras.datasets.pandas.ExcelDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.AppendableExcelDataSet.html">kedro.extras.datasets.pandas.AppendableExcelDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.FeatherDataSet.html">kedro.extras.datasets.pandas.FeatherDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.GBQTableDataSet.html">kedro.extras.datasets.pandas.GBQTableDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.HDFDataSet.html">kedro.extras.datasets.pandas.HDFDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.JSONDataSet.html">kedro.extras.datasets.pandas.JSONDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.ParquetDataSet.html">kedro.extras.datasets.pandas.ParquetDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.SQLQueryDataSet.html">kedro.extras.datasets.pandas.SQLQueryDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.SQLTableDataSet.html">kedro.extras.datasets.pandas.SQLTableDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pickle.PickleDataSet.html">kedro.extras.datasets.pickle.PickleDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pillow.ImageDataSet.html">kedro.extras.datasets.pillow.ImageDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.plotly.PlotlyDataSet.html">kedro.extras.datasets.plotly.PlotlyDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.spark.SparkDataSet.html">kedro.extras.datasets.spark.SparkDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.spark.SparkHiveDataSet.html">kedro.extras.datasets.spark.SparkHiveDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.spark.SparkJDBCDataSet.html">kedro.extras.datasets.spark.SparkJDBCDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.tensorflow.TensorFlowModelDataset.html">kedro.extras.datasets.tensorflow.TensorFlowModelDataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.text.TextDataSet.html">kedro.extras.datasets.text.TextDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.tracking.JSONDataSet.html">kedro.extras.datasets.tracking.JSONDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.tracking.MetricsDataSet.html">kedro.extras.datasets.tracking.MetricsDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.yaml.YAMLDataSet.html">kedro.extras.datasets.yaml.YAMLDataSet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.extras.decorators.html">kedro.extras.decorators</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.decorators.memory_profiler.html">kedro.extras.decorators.memory_profiler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.decorators.retry_node.html">kedro.extras.decorators.retry_node</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.extras.extensions.html">kedro.extras.extensions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.extensions.ipython.html">kedro.extras.extensions.ipython</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.extras.logging.html">kedro.extras.logging</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.logging.color_logger.html">kedro.extras.logging.color_logger</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.extras.transformers.html">kedro.extras.transformers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.transformers.memory_profiler.html">kedro.extras.transformers.memory_profiler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.transformers.time_profiler.html">kedro.extras.transformers.time_profiler</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.framework.html">kedro.framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.framework.cli.html">kedro.framework.cli</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.framework.cli.catalog.html">kedro.framework.cli.catalog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.framework.cli.cli.html">kedro.framework.cli.cli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.framework.cli.hooks.html">kedro.framework.cli.hooks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.framework.cli.jupyter.html">kedro.framework.cli.jupyter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.framework.cli.pipeline.html">kedro.framework.cli.pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.framework.cli.project.html">kedro.framework.cli.project</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.framework.cli.registry.html">kedro.framework.cli.registry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.framework.cli.starters.html">kedro.framework.cli.starters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.framework.cli.utils.html">kedro.framework.cli.utils</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.framework.context.html">kedro.framework.context</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.framework.context.KedroContext.html">kedro.framework.context.KedroContext</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.framework.context.KedroContextError.html">kedro.framework.context.KedroContextError</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.framework.hooks.html">kedro.framework.hooks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.framework.hooks.manager.html">kedro.framework.hooks.manager</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.framework.hooks.markers.html">kedro.framework.hooks.markers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.framework.hooks.specs.html">kedro.framework.hooks.specs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.framework.project.html">kedro.framework.project</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.framework.project.configure_project.html">kedro.framework.project.configure_project</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.framework.project.validate_settings.html">kedro.framework.project.validate_settings</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.framework.session.html">kedro.framework.session</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.framework.session.session.html">kedro.framework.session.session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.framework.session.store.html">kedro.framework.session.store</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.framework.startup.html">kedro.framework.startup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.framework.startup.bootstrap_project.html">kedro.framework.startup.bootstrap_project</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.framework.startup.ProjectMetadata.html">kedro.framework.startup.ProjectMetadata</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.io.html">kedro.io</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.io.AbstractDataSet.html">kedro.io.AbstractDataSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.io.AbstractVersionedDataSet.html">kedro.io.AbstractVersionedDataSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.io.AbstractTransformer.html">kedro.io.AbstractTransformer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.io.DataCatalog.html">kedro.io.DataCatalog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.io.LambdaDataSet.html">kedro.io.LambdaDataSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.io.MemoryDataSet.html">kedro.io.MemoryDataSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.io.PartitionedDataSet.html">kedro.io.PartitionedDataSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.io.IncrementalDataSet.html">kedro.io.IncrementalDataSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.io.CachedDataSet.html">kedro.io.CachedDataSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.io.DataCatalogWithDefault.html">kedro.io.DataCatalogWithDefault</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.io.Version.html">kedro.io.Version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.io.DataSetAlreadyExistsError.html">kedro.io.DataSetAlreadyExistsError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.io.DataSetError.html">kedro.io.DataSetError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.io.DataSetNotFoundError.html">kedro.io.DataSetNotFoundError</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.pipeline.html">kedro.pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.pipeline.node.html">kedro.pipeline.node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.pipeline.modular_pipeline.pipeline.html">kedro.pipeline.modular_pipeline.pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.pipeline.Pipeline.html">kedro.pipeline.Pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.pipeline.node.Node.html">kedro.pipeline.node.Node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.pipeline.decorators.html">kedro.pipeline.decorators</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.pipeline.decorators.log_time.html">kedro.pipeline.decorators.log_time</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.pipeline.modular_pipeline.ModularPipelineError.html">kedro.pipeline.modular_pipeline.ModularPipelineError</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.runner.html">kedro.runner</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.runner.run_node.html">kedro.runner.run_node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.runner.AbstractRunner.html">kedro.runner.AbstractRunner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.runner.ParallelRunner.html">kedro.runner.ParallelRunner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.runner.SequentialRunner.html">kedro.runner.SequentialRunner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.runner.ThreadRunner.html">kedro.runner.ThreadRunner</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.utils.html">kedro.utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.utils.load_obj.html">kedro.utils.load_obj</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.versioning.html">kedro.versioning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.versioning.journal.html">kedro.versioning.journal</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.versioning.journal.Journal.html">kedro.versioning.journal.Journal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.versioning.journal.JournalFileHandler.html">kedro.versioning.journal.JournalFileHandler</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Kedro</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>The Data Catalog</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <!-- User defined GitHub URL -->
+              <a href="https://github.com/quantumblacklabs/kedro/tree/master/docs/source" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="the-data-catalog">
+<h1>The Data Catalog<a class="headerlink" href="#the-data-catalog" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This documentation is based on <code class="docutils literal notranslate"><span class="pre">Kedro</span> <span class="pre">0.17.1</span></code>. If you spot anything that is incorrect then please create an <a class="reference external" href="https://github.com/quantumblacklabs/kedro/issues">issue</a> or pull request.</p>
+</div>
+<p>This section introduces <code class="docutils literal notranslate"><span class="pre">catalog.yml</span></code>, the project-shareable Data Catalog. The file is located in <code class="docutils literal notranslate"><span class="pre">conf/base</span></code> and is a registry of all data sources available for use by a project; it manages loading and saving of data.</p>
+<p>All supported data connectors are available in <a class="reference internal" href="../kedro.extras.datasets.html"><span class="doc">kedro.extras.datasets</span></a>.</p>
+<div class="section" id="using-the-data-catalog-within-kedro-configuration">
+<h2>Using the Data Catalog within Kedro configuration<a class="headerlink" href="#using-the-data-catalog-within-kedro-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Kedro uses configuration to make your code reproducible when it has to reference datasets in different locations and/or in different environments.</p>
+<p>You can copy this file and reference additional locations for the same datasets. For instance, you can use the <code class="docutils literal notranslate"><span class="pre">catalog.yml</span></code> file in <code class="docutils literal notranslate"><span class="pre">conf/base/</span></code> to register the locations of datasets that would run in production while copying and updating a second version of <code class="docutils literal notranslate"><span class="pre">catalog.yml</span></code> in <code class="docutils literal notranslate"><span class="pre">conf/local/</span></code> to register the locations of sample datasets that you are using for prototyping your data pipeline(s).</p>
+<p>There is built-in functionality for <code class="docutils literal notranslate"><span class="pre">conf/local/</span></code> to overwrite <code class="docutils literal notranslate"><span class="pre">conf/base/</span></code> detailed <a class="reference internal" href="../04_kedro_project_setup/02_configuration.html"><span class="doc">here</span></a>. This means that a dataset called <code class="docutils literal notranslate"><span class="pre">cars</span></code> could exist in the <code class="docutils literal notranslate"><span class="pre">catalog.yml</span></code> files in <code class="docutils literal notranslate"><span class="pre">conf/base/</span></code> and <code class="docutils literal notranslate"><span class="pre">conf/local/</span></code>. In code, in <code class="docutils literal notranslate"><span class="pre">src</span></code>, you would only call a dataset named <code class="docutils literal notranslate"><span class="pre">cars</span></code> and Kedro would detect which definition of <code class="docutils literal notranslate"><span class="pre">cars</span></code> dataset to use to run your pipeline - <code class="docutils literal notranslate"><span class="pre">cars</span></code> definition from <code class="docutils literal notranslate"><span class="pre">conf/local/catalog.yml</span></code> would take precedence in this case.</p>
+<p>The Data Catalog also works with the <code class="docutils literal notranslate"><span class="pre">credentials.yml</span></code> in <code class="docutils literal notranslate"><span class="pre">conf/local/</span></code>, allowing you to specify usernames and passwords that are required to load certain datasets.</p>
+<p>The are two ways of defining a Data Catalog through the use of YAML configuration, or programmatically using an API. Both methods allow you to specify:</p>
+<ul class="simple">
+<li><p>Dataset name</p></li>
+<li><p>Dataset type</p></li>
+<li><p>Location of the dataset using <code class="docutils literal notranslate"><span class="pre">fsspec</span></code>, detailed in the next section</p></li>
+<li><p>Credentials needed in order to access the dataset</p></li>
+<li><p>Load and saving arguments</p></li>
+<li><p>Whether or not you want a <a class="reference internal" href="02_kedro_io.html#versioning"><span class="std std-ref">dataset or ML model to be versioned</span></a> when you run your data pipeline</p></li>
+</ul>
+</div>
+<div class="section" id="specifying-the-location-of-the-dataset">
+<h2>Specifying the location of the dataset<a class="headerlink" href="#specifying-the-location-of-the-dataset" title="Permalink to this headline">¶</a></h2>
+<p>Kedro relies on <a class="reference external" href="https://filesystem-spec.readthedocs.io/en/latest/"><code class="docutils literal notranslate"><span class="pre">fsspec</span></code></a> for reading and saving data from a variety of data stores including local file systems, network file systems, cloud object stores, and Hadoop. When specifying a storage location in <code class="docutils literal notranslate"><span class="pre">filepath:</span></code>, you should provide a URL using the general form <code class="docutils literal notranslate"><span class="pre">protocol://path/to/data</span></code>.  If no protocol is provided, the local file system is assumed (same as <code class="docutils literal notranslate"><span class="pre">file://</span></code>).</p>
+<p>The following prepends are available:</p>
+<ul class="simple">
+<li><p><strong>Local or Network File System</strong>: <code class="docutils literal notranslate"><span class="pre">file://</span></code> - the local file system is default in the absence of any protocol, it also permits relative paths.</p></li>
+<li><p><strong>Hadoop File System (HDFS)</strong>: <code class="docutils literal notranslate"><span class="pre">hdfs://user&#64;server:port/path/to/data</span></code> - Hadoop Distributed File System, for resilient, replicated files within a cluster.</p></li>
+<li><p><strong>Amazon S3</strong>: <code class="docutils literal notranslate"><span class="pre">s3://my-bucket-name/path/to/data</span></code> - Amazon S3 remote binary store, often used with Amazon EC2,
+using the library s3fs.</p></li>
+<li><p><strong>S3 Compatible Storage</strong>: <code class="docutils literal notranslate"><span class="pre">s3://my-bucket-name/path/_to/data</span></code> - e.g. Minio, using the s3fs library.</p></li>
+<li><p><strong>Google Cloud Storage</strong>: <code class="docutils literal notranslate"><span class="pre">gcs://</span></code> - Google Cloud Storage, typically used with Google Compute
+resource using gcsfs (in development).</p></li>
+<li><p><strong>Azure Blob Storage / Azure Data Lake Storage Gen2</strong>: <code class="docutils literal notranslate"><span class="pre">abfs://</span></code> - Azure Blob Storage, typically used when working on an Azure environment.</p></li>
+<li><p><strong>HTTP(s)</strong>: <code class="docutils literal notranslate"><span class="pre">http://</span></code> or <code class="docutils literal notranslate"><span class="pre">https://</span></code> for reading data directly from HTTP web servers.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">fsspec</span></code> also provides other file systems, such as SSH, FTP and WebHDFS. See the <a class="reference external" href="https://filesystem-spec.readthedocs.io/en/latest/api.html#implementations">documentation</a> for more information.</p>
+</div>
+<div class="section" id="data-catalog-args-parameters">
+<h2>Data Catalog <code class="docutils literal notranslate"><span class="pre">*_args</span></code> parameters<a class="headerlink" href="#data-catalog-args-parameters" title="Permalink to this headline">¶</a></h2>
+<p>Data Catalog accepts two different groups of <code class="docutils literal notranslate"><span class="pre">*_args</span></code> parameters that serve different purposes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fs_args</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_args</span></code> and <code class="docutils literal notranslate"><span class="pre">save_args</span></code></p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">fs_args</span></code> is used to configure the interaction with a filesystem.
+All the top-level parameters of <code class="docutils literal notranslate"><span class="pre">fs_args</span></code> (except <code class="docutils literal notranslate"><span class="pre">open_args_load</span></code> and <code class="docutils literal notranslate"><span class="pre">open_args_save</span></code>) will be passed in an underlying filesystem class.</p>
+<p>Example 1: Provide the <code class="docutils literal notranslate"><span class="pre">project</span></code> value to the underlying filesystem class (<code class="docutils literal notranslate"><span class="pre">GCSFileSystem</span></code>) to interact with Google Cloud Storage (GCS)</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">test_dataset</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
+  <span class="nt">fs_args</span><span class="p">:</span>
+    <span class="nt">project</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">test_project</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">open_args_load</span></code> and <code class="docutils literal notranslate"><span class="pre">open_args_save</span></code> parameters are passed to the filesystem’s <code class="docutils literal notranslate"><span class="pre">open</span></code> method to configure how a dataset file (on a specific filesystem) is opened during a load or save operation, respectively.</p>
+<p>Example 2: Load data from a local binary file using <code class="docutils literal notranslate"><span class="pre">utf-8</span></code> encoding</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">test_dataset</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
+  <span class="nt">fs_args</span><span class="p">:</span>
+    <span class="nt">open_args_load</span><span class="p">:</span>
+      <span class="nt">mode</span><span class="p">:</span> <span class="s">&quot;rb&quot;</span>
+      <span class="nt">encoding</span><span class="p">:</span> <span class="s">&quot;utf-8&quot;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">load_args</span></code> and <code class="docutils literal notranslate"><span class="pre">save_args</span></code> configure how a third-party library (e.g. <code class="docutils literal notranslate"><span class="pre">pandas</span></code> for <code class="docutils literal notranslate"><span class="pre">CSVDataSet</span></code>) loads/saves data from/to a file.</p>
+<p>Example 3: Save data to a CSV file without row names (index) using <code class="docutils literal notranslate"><span class="pre">utf-8</span></code> encoding</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">test_dataset</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pandas.CSVDataSet</span>
+  <span class="l l-Scalar l-Scalar-Plain">...</span>
+  <span class="nt">save_args</span><span class="p">:</span>
+    <span class="nt">index</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+    <span class="nt">encoding</span><span class="p">:</span> <span class="s">&quot;utf-8&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-the-data-catalog-with-the-yaml-api">
+<h2>Using the Data Catalog with the YAML API<a class="headerlink" href="#using-the-data-catalog-with-the-yaml-api" title="Permalink to this headline">¶</a></h2>
+<p>The YAML API allows you to configure your datasets in a YAML configuration file, <code class="docutils literal notranslate"><span class="pre">conf/base/catalog.yml</span></code> or <code class="docutils literal notranslate"><span class="pre">conf/local/catalog.yml</span></code>.</p>
+<p>Here are some examples of data configuration in a <code class="docutils literal notranslate"><span class="pre">catalog.yml</span></code>:</p>
+<p>Example 1: Loads / saves a CSV file from / to a local file system</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">bikes</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pandas.CSVDataSet</span>
+  <span class="nt">filepath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">data/01_raw/bikes.csv</span>
+</pre></div>
+</div>
+<p>Example 2: Loads and saves a CSV on a local file system, using specified load and save arguments</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">cars</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pandas.CSVDataSet</span>
+  <span class="nt">filepath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">data/01_raw/company/cars.csv</span>
+  <span class="nt">load_args</span><span class="p">:</span>
+    <span class="nt">sep</span><span class="p">:</span> <span class="s">&#39;,&#39;</span>
+  <span class="nt">save_args</span><span class="p">:</span>
+    <span class="nt">index</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+    <span class="nt">date_format</span><span class="p">:</span> <span class="s">&#39;%Y-%m-%d</span><span class="nv"> </span><span class="s">%H:%M&#39;</span>
+    <span class="nt">decimal</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.</span>
+</pre></div>
+</div>
+<p>Example 3: Loads and saves a compressed CSV on a local file system</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">boats</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pandas.CSVDataSet</span>
+  <span class="nt">filepath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">data/01_raw/company/boats.csv.gz</span>
+  <span class="nt">load_args</span><span class="p">:</span>
+    <span class="nt">sep</span><span class="p">:</span> <span class="s">&#39;,&#39;</span>
+    <span class="nt">compression</span><span class="p">:</span> <span class="s">&#39;gzip&#39;</span>
+  <span class="nt">fs_args</span><span class="p">:</span>
+    <span class="nt">open_args_load</span><span class="p">:</span>
+      <span class="nt">mode</span><span class="p">:</span> <span class="s">&#39;rb&#39;</span>
+</pre></div>
+</div>
+<p>Example 4: Loads a CSV file from a specific S3 bucket, using credentials and load arguments</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">motorbikes</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pandas.CSVDataSet</span>
+  <span class="nt">filepath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">s3://your_bucket/data/02_intermediate/company/motorbikes.csv</span>
+  <span class="nt">credentials</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dev_s3</span>
+  <span class="nt">load_args</span><span class="p">:</span>
+    <span class="nt">sep</span><span class="p">:</span> <span class="s">&#39;,&#39;</span>
+    <span class="nt">skiprows</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+    <span class="nt">skipfooter</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+    <span class="nt">na_values</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;#NA&#39;</span><span class="p p-Indicator">,</span> <span class="nv">NA</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<p>Example 5: Loads / saves a pickle file from / to a local file system</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">airplanes</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pickle.PickleDataSet</span>
+  <span class="nt">filepath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">data/06_models/airplanes.pkl</span>
+  <span class="nt">backend</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pickle</span>
+</pre></div>
+</div>
+<p>Example 6: Loads an excel file from Google Cloud Storage</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">rockets</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pandas.ExcelDataSet</span>
+  <span class="nt">filepath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gcs://your_bucket/data/02_intermediate/company/motorbikes.xlsx</span>
+  <span class="nt">fs_args</span><span class="p">:</span>
+    <span class="nt">project</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-project</span>
+  <span class="nt">credentials</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my_gcp_credentials</span>
+  <span class="nt">save_args</span><span class="p">:</span>
+    <span class="nt">sheet_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Sheet1</span>
+</pre></div>
+</div>
+<p>Example 7: Save an image created with Matplotlib on Google Cloud Storage</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">results_plot</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">matplotlib.MatplotlibWriter</span>
+  <span class="nt">filepath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gcs://your_bucket/data/08_results/plots/output_1.jpeg</span>
+  <span class="nt">fs_args</span><span class="p">:</span>
+    <span class="nt">project</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-project</span>
+  <span class="nt">credentials</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my_gcp_credentials</span>
+</pre></div>
+</div>
+<p>Example 8: Loads / saves an HDF file on local file system storage, using specified load and save arguments</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">skateboards</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pandas.HDFDataSet</span>
+  <span class="nt">filepath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">data/02_intermediate/skateboards.hdf</span>
+  <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">name</span>
+  <span class="nt">load_args</span><span class="p">:</span>
+    <span class="nt">columns</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">brand</span><span class="p p-Indicator">,</span> <span class="nv">length</span><span class="p p-Indicator">]</span>
+  <span class="nt">save_args</span><span class="p">:</span>
+    <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">w</span>  <span class="c1"># Overwrite even when the file already exists</span>
+    <span class="nt">dropna</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
+</pre></div>
+</div>
+<p>Example 9: Loads / saves a parquet file on local file system storage, using specified load and save arguments</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">trucks</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pandas.ParquetDataSet</span>
+  <span class="nt">filepath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">data/02_intermediate/trucks.parquet</span>
+  <span class="nt">load_args</span><span class="p">:</span>
+    <span class="nt">columns</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">name</span><span class="p p-Indicator">,</span> <span class="nv">gear</span><span class="p p-Indicator">,</span> <span class="nv">disp</span><span class="p p-Indicator">,</span> <span class="nv">wt</span><span class="p p-Indicator">]</span>
+    <span class="nt">categories</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">list</span>
+    <span class="nt">index</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">name</span>
+  <span class="nt">save_args</span><span class="p">:</span>
+    <span class="nt">compression</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">GZIP</span>
+    <span class="nt">file_scheme</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">hive</span>
+    <span class="nt">has_nulls</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+    <span class="nt">partition_on</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">name</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<p>Example 10: Load / saves a Spark table on S3, using specified load and save arguments</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">weather</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">spark.SparkDataSet</span>
+  <span class="nt">filepath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">s3a://your_bucket/data/01_raw/weather*</span>
+  <span class="nt">credentials</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dev_s3</span>
+  <span class="nt">file_format</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">csv</span>
+  <span class="nt">load_args</span><span class="p">:</span>
+    <span class="nt">header</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
+    <span class="nt">inferSchema</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
+  <span class="nt">save_args</span><span class="p">:</span>
+    <span class="nt">sep</span><span class="p">:</span> <span class="s">&#39;|&#39;</span>
+    <span class="nt">header</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
+</pre></div>
+</div>
+<p>Example 11: Loads / saves a SQL table using credentials, a database connection, using specified load and save arguments</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scooters</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pandas.SQLTableDataSet</span>
+  <span class="nt">credentials</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">scooters_credentials</span>
+  <span class="nt">table_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">scooters</span>
+  <span class="nt">load_args</span><span class="p">:</span>
+    <span class="nt">index_col</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">name</span><span class="p p-Indicator">]</span>
+    <span class="nt">columns</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">name</span><span class="p p-Indicator">,</span> <span class="nv">gear</span><span class="p p-Indicator">]</span>
+  <span class="nt">save_args</span><span class="p">:</span>
+    <span class="nt">if_exists</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">replace</span>
+</pre></div>
+</div>
+<p>Example 12: Load a SQL table with credentials, a database connection, and applies a SQL query to the table</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scooters_query</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pandas.SQLQueryDataSet</span>
+  <span class="nt">credentials</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">scooters_credentials</span>
+  <span class="nt">sql</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">select * from cars where gear=4</span>
+  <span class="nt">load_args</span><span class="p">:</span>
+    <span class="nt">index_col</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">name</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<p>Example 13: Load data from an API endpoint, example US corn yield data from USDA</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">us_corn_yield_data</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">api.APIDataSet</span>
+  <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://quickstats.nass.usda.gov</span>
+  <span class="nt">params</span><span class="p">:</span>
+    <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SOME_TOKEN</span>
+    <span class="nt">format</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">JSON</span>
+    <span class="nt">commodity_desc</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CORN</span>
+    <span class="nt">statisticcat_des</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">YIELD</span>
+    <span class="nt">agg_level_desc</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">STATE</span>
+    <span class="nt">year</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2000</span>
+</pre></div>
+</div>
+<p>When using <a class="reference internal" href="../kedro.extras.datasets.pandas.SQLTableDataSet.html"><span class="doc">pandas.SQLTableDataSet</span></a> or <a class="reference internal" href="../kedro.extras.datasets.pandas.SQLQueryDataSet.html"><span class="doc">pandas.SQLQueryDataSet</span></a> you must provide a database connection string. In the example above we pass it using <code class="docutils literal notranslate"><span class="pre">scooters_credentials</span></code> key from the credentials (see the details in <a class="reference external" href="#feeding-in-credentials">Feeding in credentials</a> section below). <code class="docutils literal notranslate"><span class="pre">scooters_credentials</span></code> must have a top-level key <code class="docutils literal notranslate"><span class="pre">con</span></code> containing <a class="reference external" href="https://docs.sqlalchemy.org/en/13/core/engines.html#database-urls">SQLAlchemy compatible</a> connection string. As an alternative to credentials, you could explicitly put <code class="docutils literal notranslate"><span class="pre">con</span></code> into <code class="docutils literal notranslate"><span class="pre">load_args</span></code> and <code class="docutils literal notranslate"><span class="pre">save_args</span></code> (<code class="docutils literal notranslate"><span class="pre">pandas.SQLTableDataSet</span></code> only).</p>
+<p>Example 14: Loading data from Minio (S3 API Compatible Storage)</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">test</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pandas.CSVDataSet</span>
+  <span class="nt">filepath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">s3://your_bucket/test.csv</span> <span class="c1"># assume `test.csv` is uploaded to the Minio server.</span>
+  <span class="nt">credentials</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dev_minio</span>
+</pre></div>
+</div>
+<p>In <code class="docutils literal notranslate"><span class="pre">credentials.yml</span></code>, define the <code class="docutils literal notranslate"><span class="pre">key</span></code>, <code class="docutils literal notranslate"><span class="pre">secret</span></code> and the <code class="docutils literal notranslate"><span class="pre">endpoint_url</span></code> as follows:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">dev_minio</span><span class="p">:</span>
+  <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">token</span>
+  <span class="nt">secret</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">key</span>
+  <span class="nt">client_kwargs</span><span class="p">:</span>
+    <span class="nt">endpoint_url </span><span class="p">:</span> <span class="s">&#39;http://localhost:9000&#39;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The easiest way to setup MinIO is to run a Docker image. After the following command, you can access to Minio server with <code class="docutils literal notranslate"><span class="pre">http://localhost:9000</span></code> and create a bucket and add files as if it is on S3.</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-p</span> <span class="pre">9000:9000</span> <span class="pre">-e</span> <span class="pre">&quot;MINIO_ACCESS_KEY=token&quot;</span> <span class="pre">-e</span> <span class="pre">&quot;MINIO_SECRET_KEY=key&quot;</span> <span class="pre">minio/minio</span> <span class="pre">server</span> <span class="pre">/data</span></code></p>
+<p>Example 15: Loading a model saved as a pickle from Azure Blob Storage</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">ml_model</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pickle.PickleDataSet</span>
+  <span class="nt">filepath</span><span class="p">:</span> <span class="s">&quot;abfs://models/ml_models.pickle&quot;</span>
+  <span class="nt">versioned</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
+  <span class="nt">credentials</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dev_abs</span>
+</pre></div>
+</div>
+<p>In <code class="docutils literal notranslate"><span class="pre">credentials.yml</span></code>, define the <code class="docutils literal notranslate"><span class="pre">account_name</span></code> and <code class="docutils literal notranslate"><span class="pre">account_key</span></code> as follows:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">dev_abs</span><span class="p">:</span>
+  <span class="nt">account_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">accountname</span>
+  <span class="nt">account_key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">key</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-a-data-catalog-yaml-configuration-file-via-cli">
+<h2>Creating a Data Catalog YAML configuration file via CLI<a class="headerlink" href="#creating-a-data-catalog-yaml-configuration-file-via-cli" title="Permalink to this headline">¶</a></h2>
+<p>You can use <a class="reference internal" href="../09_development/03_commands_reference.html#create-a-data-catalog-yaml-configuration-file"><span class="std std-ref">kedro catalog create command</span></a> to create a Data Catalog YAML configuration.</p>
+<p>It creates a <code class="docutils literal notranslate"><span class="pre">&lt;conf_root&gt;/&lt;env&gt;/catalog/&lt;pipeline_name&gt;.yml</span></code> configuration file with <code class="docutils literal notranslate"><span class="pre">MemoryDataSet</span></code> datasets for each dataset in a registered pipeline if it is missing from the <code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code>.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># &lt;conf_root&gt;/&lt;env&gt;/catalog/&lt;pipeline_name&gt;.yml</span>
+<span class="nt">rockets</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MemoryDataSet</span>
+<span class="nt">scooters</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MemoryDataSet</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="adding-parameters">
+<h2>Adding parameters<a class="headerlink" href="#adding-parameters" title="Permalink to this headline">¶</a></h2>
+<p>You can <a class="reference internal" href="../04_kedro_project_setup/02_configuration.html#load-parameters"><span class="std std-ref">configure parameters</span></a> for your project and <a class="reference internal" href="../04_kedro_project_setup/02_configuration.html#use-parameters"><span class="std std-ref">reference them</span></a> in your nodes. Do this using the <code class="docutils literal notranslate"><span class="pre">add_feed_dict()</span></code> method (<a class="reference internal" href="../kedro.io.DataCatalog.html"><span class="doc">API documentation</span></a>). You can use this method to add any other entry / metadata you wish on the <code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code>.</p>
+</div>
+<div class="section" id="feeding-in-credentials">
+<h2>Feeding in credentials<a class="headerlink" href="#feeding-in-credentials" title="Permalink to this headline">¶</a></h2>
+<p>Before instantiating the <code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code> Kedro will first attempt to read the credentials from <a class="reference internal" href="../04_kedro_project_setup/02_configuration.html#aws-credentials"><span class="std std-ref">the project configuration</span></a>. The resulting dictionary is then passed into <code class="docutils literal notranslate"><span class="pre">DataCatalog.from_config()</span></code> as the <code class="docutils literal notranslate"><span class="pre">credentials</span></code> argument.</p>
+<p>Let’s assume that the project contains the file <code class="docutils literal notranslate"><span class="pre">conf/local/credentials.yml</span></code> with the following contents:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">dev_s3</span><span class="p">:</span>
+  <span class="nt">client_kwargs</span><span class="p">:</span>
+    <span class="nt">aws_access_key_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">key</span>
+    <span class="nt">aws_secret_access_key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">secret</span>
+
+<span class="nt">scooters_credentials</span><span class="p">:</span>
+  <span class="nt">con</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sqlite:///kedro.db</span>
+
+<span class="nt">my_gcp_credentials</span><span class="p">:</span>
+  <span class="nt">id_token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">key</span>
+</pre></div>
+</div>
+<p>In the example above <code class="docutils literal notranslate"><span class="pre">catalog.yml</span></code> contains references to credentials keys <code class="docutils literal notranslate"><span class="pre">dev_s3</span></code> and <code class="docutils literal notranslate"><span class="pre">scooters_credentials</span></code>. It means that when instantiating <code class="docutils literal notranslate"><span class="pre">motorbikes</span></code> dataset, for example, the <code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code> will attempt to read top-level key <code class="docutils literal notranslate"><span class="pre">dev_s3</span></code> from the received <code class="docutils literal notranslate"><span class="pre">credentials</span></code> dictionary, and then will pass its values into the dataset <code class="docutils literal notranslate"><span class="pre">__init__</span></code> as <code class="docutils literal notranslate"><span class="pre">credentials</span></code> argument. This is essentially equivalent to calling this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">CSVDataSet</span><span class="p">(</span>
+    <span class="n">filepath</span><span class="o">=</span><span class="s2">&quot;s3://test_bucket/data/02_intermediate/company/motorbikes.csv&quot;</span><span class="p">,</span>
+    <span class="n">load_args</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">skipfooter</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;#NA&quot;</span><span class="p">,</span> <span class="s2">&quot;NA&quot;</span><span class="p">]),</span>
+    <span class="n">credentials</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s2">&quot;token&quot;</span><span class="p">,</span> <span class="n">secret</span><span class="o">=</span><span class="s2">&quot;key&quot;</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="loading-multiple-datasets-that-have-similar-configuration">
+<h2>Loading multiple datasets that have similar configuration<a class="headerlink" href="#loading-multiple-datasets-that-have-similar-configuration" title="Permalink to this headline">¶</a></h2>
+<p>You may encounter situations where your datasets use the same file format, load and save arguments, and are stored in the same folder. YAML has a <a class="reference external" href="https://yaml.org/spec/1.2.1/#Syntax">built-in syntax</a> for factorising parts of a YAML file, which means that you can decide what is generalisable across your datasets so that you do not have to spend time copying and pasting dataset configurations in <code class="docutils literal notranslate"><span class="pre">catalog.yml</span></code>.</p>
+<p>You can see this in the following example:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">_csv</span><span class="p">:</span> <span class="nl">&amp;csv</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">spark.SparkDataSet</span>
+  <span class="nt">file_format</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">csv</span>
+  <span class="nt">load_args</span><span class="p">:</span>
+    <span class="nt">sep</span><span class="p">:</span> <span class="s">&#39;,&#39;</span>
+    <span class="nt">na_values</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;#NA&#39;</span><span class="p p-Indicator">,</span> <span class="nv">NA</span><span class="p p-Indicator">]</span>
+    <span class="nt">header</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
+    <span class="nt">inferSchema</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+
+<span class="nt">cars</span><span class="p">:</span>
+  <span class="nt">&lt;&lt;</span><span class="p">:</span> <span class="nv">*csv</span>
+  <span class="nt">filepath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">s3a://data/01_raw/cars.csv</span>
+
+<span class="nt">trucks</span><span class="p">:</span>
+  <span class="nt">&lt;&lt;</span><span class="p">:</span> <span class="nv">*csv</span>
+  <span class="nt">filepath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">s3a://data/01_raw/trucks.csv</span>
+
+<span class="nt">bikes</span><span class="p">:</span>
+  <span class="nt">&lt;&lt;</span><span class="p">:</span> <span class="nv">*csv</span>
+  <span class="nt">filepath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">s3a://data/01_raw/bikes.csv</span>
+  <span class="nt">load_args</span><span class="p">:</span>
+    <span class="nt">header</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+</pre></div>
+</div>
+<p>The syntax <code class="docutils literal notranslate"><span class="pre">&amp;csv</span></code> names the following block <code class="docutils literal notranslate"><span class="pre">csv</span></code> and the syntax <code class="docutils literal notranslate"><span class="pre">&lt;&lt;:</span> <span class="pre">*csv</span></code> inserts the contents of the block named <code class="docutils literal notranslate"><span class="pre">csv</span></code>. Locally declared keys entirely override inserted ones as seen in <code class="docutils literal notranslate"><span class="pre">bikes</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It’s important that the name of the template entry starts with a <code class="docutils literal notranslate"><span class="pre">_</span></code> so Kedro knows not to try and instantiate it as a dataset.</p>
+</div>
+<p>You can also nest reuseable YAML syntax:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">_csv</span><span class="p">:</span> <span class="nl">&amp;csv</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">spark.SparkDataSet</span>
+  <span class="nt">file_format</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">csv</span>
+  <span class="nt">load_args</span><span class="p">:</span> <span class="nl">&amp;csv_load_args</span>
+    <span class="nt">header</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
+    <span class="nt">inferSchema</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+
+<span class="nt">airplanes</span><span class="p">:</span>
+  <span class="nt">&lt;&lt;</span><span class="p">:</span> <span class="nv">*csv</span>
+  <span class="nt">filepath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">s3a://data/01_raw/airplanes.csv</span>
+  <span class="nt">load_args</span><span class="p">:</span>
+    <span class="nt">&lt;&lt;</span><span class="p">:</span> <span class="nv">*csv_load_args</span>
+    <span class="nt">sep</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">;</span>
+</pre></div>
+</div>
+<p>In this example the default <code class="docutils literal notranslate"><span class="pre">csv</span></code> configuration is inserted into <code class="docutils literal notranslate"><span class="pre">airplanes</span></code> and then the <code class="docutils literal notranslate"><span class="pre">load_args</span></code> block is overridden. Normally that would replace the whole dictionary. In order to extend <code class="docutils literal notranslate"><span class="pre">load_args</span></code> the defaults for that block are then re-inserted.</p>
+</div>
+<div class="section" id="transcoding-datasets">
+<h2>Transcoding datasets<a class="headerlink" href="#transcoding-datasets" title="Permalink to this headline">¶</a></h2>
+<p>You may come across a situation where you would like to read the same file using two different dataset implementations. Use transcoding when you want to load and save the same file, via its specified <code class="docutils literal notranslate"><span class="pre">filepath</span></code>, using different <code class="docutils literal notranslate"><span class="pre">DataSet</span></code> implementations.</p>
+<div class="section" id="a-typical-example-of-transcoding">
+<h3>A typical example of transcoding<a class="headerlink" href="#a-typical-example-of-transcoding" title="Permalink to this headline">¶</a></h3>
+<p>For instance, parquet files can not only be loaded via the <code class="docutils literal notranslate"><span class="pre">ParquetDataSet</span></code> using <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, but also directly by <code class="docutils literal notranslate"><span class="pre">SparkDataSet</span></code>. This conversion is typical when coordinating a <code class="docutils literal notranslate"><span class="pre">Spark</span></code> to <code class="docutils literal notranslate"><span class="pre">pandas</span></code> workflow.</p>
+<p>To enable transcoding, define two <code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code> entries for the same dataset in a common format (Parquet, JSON, CSV, etc.) in your <code class="docutils literal notranslate"><span class="pre">conf/base/catalog.yml</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">my_dataframe@spark</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">spark.SparkDataSet</span>
+  <span class="nt">filepath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">data/02_intermediate/data.parquet</span>
+  <span class="nt">file_format</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">parquet</span>
+
+<span class="nt">my_dataframe@pandas</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pandas.ParquetDataSet</span>
+  <span class="nt">filepath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">data/02_intermediate/data.parquet</span>
+</pre></div>
+</div>
+<p>These entries are used in the pipeline like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Pipeline</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">node</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">my_func1</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="s2">&quot;spark_input&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="s2">&quot;my_dataframe@spark&quot;</span><span class="p">),</span>
+        <span class="n">node</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">my_func2</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="s2">&quot;my_dataframe@pandas&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="s2">&quot;pipeline_output&quot;</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="how-does-transcoding-work">
+<h3>How does transcoding work?<a class="headerlink" href="#how-does-transcoding-work" title="Permalink to this headline">¶</a></h3>
+<p>In this example, Kedro understands that <code class="docutils literal notranslate"><span class="pre">my_dataframe</span></code> is the same dataset in its <code class="docutils literal notranslate"><span class="pre">spark.SparkDataSet</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas.ParquetDataSet</span></code> formats and helps resolve the node execution order.</p>
+<p>In the pipeline, Kedro uses the <code class="docutils literal notranslate"><span class="pre">spark.SparkDataSet</span></code> implementation for saving and <code class="docutils literal notranslate"><span class="pre">pandas.ParquetDataSet</span></code>
+for loading, so the first node should output a <code class="docutils literal notranslate"><span class="pre">pyspark.sql.DataFrame</span></code>, while the second node would receive a <code class="docutils literal notranslate"><span class="pre">pandas.Dataframe</span></code>.</p>
+</div>
+</div>
+<div class="section" id="transforming-datasets">
+<h2>Transforming datasets<a class="headerlink" href="#transforming-datasets" title="Permalink to this headline">¶</a></h2>
+<p>Transformers are used to intercept the load and save operations on Kedro <code class="docutils literal notranslate"><span class="pre">DataSet</span></code>s. Use cases for transformers include:</p>
+<ul class="simple">
+<li><p>Data validation</p></li>
+<li><p>Tracking operation performance</p></li>
+<li><p>Data format conversion (although we would recommend <a class="reference external" href="#transcoding-datasets">Transcoding</a> for this)</p></li>
+</ul>
+<div class="section" id="applying-built-in-transformers">
+<h3>Applying built-in transformers<a class="headerlink" href="#applying-built-in-transformers" title="Permalink to this headline">¶</a></h3>
+<p>Here we cover the use case of <em>tracking operation performance</em> by applying built-in transformers to monitor the latency of load and save operations.</p>
+<p>Transformers are applied at the <code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code> level. To apply the built-in <code class="docutils literal notranslate"><span class="pre">ProfileTimeTransformer</span></code>, you need to:</p>
+<ol class="simple">
+<li><p>Navigate to <code class="docutils literal notranslate"><span class="pre">src/&lt;package_name&gt;/hooks.py</span></code></p></li>
+<li><p>Apply <code class="docutils literal notranslate"><span class="pre">ProfileTimeTransformer</span></code> in the hook implementation <code class="docutils literal notranslate"><span class="pre">TransformerHooks.after_catalog_created</span></code></p></li>
+<li><p>Register the hook in your <code class="docutils literal notranslate"><span class="pre">src/&lt;package_name&gt;/settings.py</span></code></p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># src/&lt;package_name&gt;/hooks.py</span>
+
+<span class="kn">from</span> <span class="nn">kedro.extras.transformers</span> <span class="kn">import</span> <span class="n">ProfileTimeTransformer</span>  <span class="c1"># new import</span>
+<span class="kn">from</span> <span class="nn">kedro.framework.hooks</span> <span class="kn">import</span> <span class="n">hook_impl</span>  <span class="c1"># new import</span>
+<span class="kn">from</span> <span class="nn">kedro.io</span> <span class="kn">import</span> <span class="n">DataCatalog</span>  <span class="c1"># new import</span>
+
+
+<span class="k">class</span> <span class="nc">TransformerHooks</span><span class="p">:</span>
+    <span class="nd">@hook_impl</span>
+    <span class="k">def</span> <span class="nf">after_catalog_created</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">catalog</span><span class="p">:</span> <span class="n">DataCatalog</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">catalog</span><span class="o">.</span><span class="n">add_transformer</span><span class="p">(</span><span class="n">ProfileTimeTransformer</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># src/&lt;package_name&gt;/settings.py</span>
+<span class="kn">from</span> <span class="o">&lt;</span><span class="n">package_name</span><span class="o">&gt;.</span><span class="n">hooks</span> <span class="kn">import</span> <span class="nn">TransformerHooks</span>
+
+<span class="n">HOOKS</span> <span class="o">=</span> <span class="p">(</span><span class="n">TransformerHooks</span><span class="p">(),)</span>
+</pre></div>
+</div>
+<p>Once complete, rerun the pipeline from the terminal and you should see the following logging output:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>kedro run
+
+<span class="go">...</span>
+<span class="go">2019-11-13 15:09:01,784 - kedro.io.data_catalog - INFO - Loading data from `companies` (CSVDataSet)...</span>
+<span class="go">2019-11-13 15:09:01,827 - ProfileTimeTransformer - INFO - Loading companies took 0.043 seconds</span>
+<span class="go">2019-11-13 15:09:01,828 - kedro.pipeline.node - INFO - Running node: preprocessing_companies: preprocess_companies([companies]) -&gt; [preprocessed_companies]</span>
+<span class="go">2019-11-13 15:09:01,880 - kedro_tutorial.nodes.data_engineering - INFO - Running &#39;preprocess_companies&#39; took 0.05 seconds</span>
+<span class="go">2019-11-13 15:09:01,880 - kedro_tutorial.nodes.data_engineering - INFO - Running &#39;preprocess_companies&#39; took 0.05 seconds</span>
+<span class="go">2019-11-13 15:09:01,880 - kedro.io.data_catalog - INFO - Saving data to `preprocessed_companies` (CSVDataSet)...</span>
+<span class="go">2019-11-13 15:09:02,112 - ProfileTimeTransformer - INFO - Saving preprocessed_companies took 0.232 seconds</span>
+<span class="go">2019-11-13 15:09:02,113 - kedro.runner.sequential_runner - INFO - Completed 1 out of 6 tasks</span>
+<span class="go">...</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">ProfileTimeTransformer</span> <span class="pre">-</span> <span class="pre">INFO</span></code> log messages report the latency of dataset load and save operations.</p>
+</div>
+<div class="section" id="transformer-scope">
+<h3>Transformer scope<a class="headerlink" href="#transformer-scope" title="Permalink to this headline">¶</a></h3>
+<p>You can refine the scope of the transformer by specifying an optional list of the datasets it is applied to in <code class="docutils literal notranslate"><span class="pre">add_transformer</span></code>.</p>
+<p>For example, the command <code class="docutils literal notranslate"><span class="pre">catalog.add_transformer(profile_time,</span> <span class="pre">[&quot;dataset1&quot;,</span> <span class="pre">&quot;dataset2&quot;])</span></code> applies the <code class="docutils literal notranslate"><span class="pre">profile_time</span></code> transformer <em>only</em> to the datasets named <code class="docutils literal notranslate"><span class="pre">dataset1</span></code> and <code class="docutils literal notranslate"><span class="pre">dataset2</span></code>.</p>
+<p>This is useful when you need to apply a transformer to just a subset of datasets.</p>
+</div>
+</div>
+<div class="section" id="versioning-datasets-and-ml-models">
+<h2>Versioning datasets and ML models<a class="headerlink" href="#versioning-datasets-and-ml-models" title="Permalink to this headline">¶</a></h2>
+<p>Making a simple addition to your Data Catalog allows you to perform versioning of datasets and machine learning models.</p>
+<p>Consider the following versioned dataset defined in the <code class="docutils literal notranslate"><span class="pre">catalog.yml</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">cars.csv</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pandas.CSVDataSet</span>
+  <span class="nt">filepath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">data/01_raw/company/cars.csv</span>
+  <span class="nt">versioned</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code> will create a versioned <code class="docutils literal notranslate"><span class="pre">CSVDataSet</span></code> called <code class="docutils literal notranslate"><span class="pre">cars.csv</span></code>. The actual csv file location will look like <code class="docutils literal notranslate"><span class="pre">data/01_raw/company/cars.csv/&lt;version&gt;/cars.csv</span></code>, where <code class="docutils literal notranslate"><span class="pre">&lt;version&gt;</span></code> corresponds to a global save version string formatted as <code class="docutils literal notranslate"><span class="pre">YYYY-MM-DDThh.mm.ss.sssZ</span></code>.</p>
+<p>You can run the pipeline with a particular versioned data set with <code class="docutils literal notranslate"><span class="pre">--load-version</span></code> flag as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kedro run --load-version<span class="o">=</span><span class="s2">&quot;cars.csv:YYYY-MM-DDThh.mm.ss.sssZ&quot;</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">--load-version</span></code> is dataset name and version timestamp separated by <code class="docutils literal notranslate"><span class="pre">:</span></code>.</p>
+<p>This section shows just the very basics of versioning, which is described further in the documentation about <a class="reference internal" href="02_kedro_io.html#versioning"><span class="std std-ref">Kedro IO</span></a>.</p>
+</div>
+<div class="section" id="using-the-data-catalog-with-the-code-api">
+<h2>Using the Data Catalog with the Code API<a class="headerlink" href="#using-the-data-catalog-with-the-code-api" title="Permalink to this headline">¶</a></h2>
+<p>The code API allows you to:</p>
+<ul class="simple">
+<li><p>configure data sources in code</p></li>
+<li><p>operate the IO module within notebooks</p></li>
+</ul>
+<div class="section" id="configuring-a-data-catalog">
+<h3>Configuring a Data Catalog<a class="headerlink" href="#configuring-a-data-catalog" title="Permalink to this headline">¶</a></h3>
+<p>In a file like <code class="docutils literal notranslate"><span class="pre">catalog.py</span></code>, you can construct a <code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code> object programmatically. In the following, we are using a number of pre-built data loaders documented in the <a class="reference internal" href="../kedro.extras.datasets.html"><span class="doc">API reference documentation</span></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">kedro.io</span> <span class="kn">import</span> <span class="n">DataCatalog</span>
+<span class="kn">from</span> <span class="nn">kedro.extras.datasets.pandas</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">CSVDataSet</span><span class="p">,</span>
+    <span class="n">SQLTableDataSet</span><span class="p">,</span>
+    <span class="n">SQLQueryDataSet</span><span class="p">,</span>
+    <span class="n">ParquetDataSet</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">io</span> <span class="o">=</span> <span class="n">DataCatalog</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;bikes&quot;</span><span class="p">:</span> <span class="n">CSVDataSet</span><span class="p">(</span><span class="n">filepath</span><span class="o">=</span><span class="s2">&quot;../data/01_raw/bikes.csv&quot;</span><span class="p">),</span>
+        <span class="s2">&quot;cars&quot;</span><span class="p">:</span> <span class="n">CSVDataSet</span><span class="p">(</span><span class="n">filepath</span><span class="o">=</span><span class="s2">&quot;../data/01_raw/cars.csv&quot;</span><span class="p">,</span> <span class="n">load_args</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)),</span>
+        <span class="s2">&quot;cars_table&quot;</span><span class="p">:</span> <span class="n">SQLTableDataSet</span><span class="p">(</span>
+            <span class="n">table_name</span><span class="o">=</span><span class="s2">&quot;cars&quot;</span><span class="p">,</span> <span class="n">credentials</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">con</span><span class="o">=</span><span class="s2">&quot;sqlite:///kedro.db&quot;</span><span class="p">)</span>
+        <span class="p">),</span>
+        <span class="s2">&quot;scooters_query&quot;</span><span class="p">:</span> <span class="n">SQLQueryDataSet</span><span class="p">(</span>
+            <span class="n">sql</span><span class="o">=</span><span class="s2">&quot;select * from cars where gear=4&quot;</span><span class="p">,</span>
+            <span class="n">credentials</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">con</span><span class="o">=</span><span class="s2">&quot;sqlite:///kedro.db&quot;</span><span class="p">),</span>
+        <span class="p">),</span>
+        <span class="s2">&quot;ranked&quot;</span><span class="p">:</span> <span class="n">ParquetDataSet</span><span class="p">(</span><span class="n">filepath</span><span class="o">=</span><span class="s2">&quot;ranked.parquet&quot;</span><span class="p">),</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>When using <code class="docutils literal notranslate"><span class="pre">SQLTableDataSet</span></code> or <code class="docutils literal notranslate"><span class="pre">SQLQueryDataSet</span></code> you must provide a <code class="docutils literal notranslate"><span class="pre">con</span></code> key containing <a class="reference external" href="https://docs.sqlalchemy.org/en/13/core/engines.html#database-urls">SQLAlchemy compatible</a> database connection string. In the example above we pass it as part of <code class="docutils literal notranslate"><span class="pre">credentials</span></code> argument. Alternative to <code class="docutils literal notranslate"><span class="pre">credentials</span></code> is to put <code class="docutils literal notranslate"><span class="pre">con</span></code> into <code class="docutils literal notranslate"><span class="pre">load_args</span></code> and <code class="docutils literal notranslate"><span class="pre">save_args</span></code> (<code class="docutils literal notranslate"><span class="pre">SQLTableDataSet</span></code> only).</p>
+</div>
+<div class="section" id="loading-datasets">
+<h3>Loading datasets<a class="headerlink" href="#loading-datasets" title="Permalink to this headline">¶</a></h3>
+<p>You can access each dataset by its name.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cars</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;cars&quot;</span><span class="p">)</span>  <span class="c1"># data is now loaded as a DataFrame in &#39;cars&#39;</span>
+<span class="n">gear</span> <span class="o">=</span> <span class="n">cars</span><span class="p">[</span><span class="s2">&quot;gear&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+<div class="section" id="behind-the-scenes">
+<h4>Behind the scenes<a class="headerlink" href="#behind-the-scenes" title="Permalink to this headline">¶</a></h4>
+<p>The following steps happened behind the scenes when <code class="docutils literal notranslate"><span class="pre">load</span></code> was called:</p>
+<ul class="simple">
+<li><p>The value <code class="docutils literal notranslate"><span class="pre">cars</span></code> was located in the Data Catalog</p></li>
+<li><p>The corresponding <code class="docutils literal notranslate"><span class="pre">AbstractDataSet</span></code> object was retrieved</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">load</span></code> method of this dataset was called</p></li>
+<li><p>This <code class="docutils literal notranslate"><span class="pre">load</span></code> method delegated the loading to the underlying pandas <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> function</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="viewing-the-available-data-sources">
+<h3>Viewing the available data sources<a class="headerlink" href="#viewing-the-available-data-sources" title="Permalink to this headline">¶</a></h3>
+<p>If you forget what data was assigned, you can always review the <code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">io</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="saving-data">
+<h3>Saving data<a class="headerlink" href="#saving-data" title="Permalink to this headline">¶</a></h3>
+<p>You can save data using an API similar to that used to load data.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>This use is not recommended unless you are prototyping in notebooks.</p>
+</div>
+<div class="section" id="saving-data-to-memory">
+<h4>Saving data to memory<a class="headerlink" href="#saving-data-to-memory" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">kedro.io</span> <span class="kn">import</span> <span class="n">MemoryDataSet</span>
+
+<span class="n">memory</span> <span class="o">=</span> <span class="n">MemoryDataSet</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">io</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;cars_cache&quot;</span><span class="p">,</span> <span class="n">memory</span><span class="p">)</span>
+<span class="n">io</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;cars_cache&quot;</span><span class="p">,</span> <span class="s2">&quot;Memory can store anything.&quot;</span><span class="p">)</span>
+<span class="n">io</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;car_cache&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="saving-data-to-a-sql-database-for-querying">
+<h4>Saving data to a SQL database for querying<a class="headerlink" href="#saving-data-to-a-sql-database-for-querying" title="Permalink to this headline">¶</a></h4>
+<p>At this point we may want to put the data in a SQLite database to run queries on it. Let’s use that to rank scooters by their mpg.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1"># This cleans up the database in case it exists at this point</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;kedro.db&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="n">io</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;cars_table&quot;</span><span class="p">,</span> <span class="n">cars</span><span class="p">)</span>
+<span class="n">ranked</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;scooters_query&quot;</span><span class="p">)[[</span><span class="s2">&quot;brand&quot;</span><span class="p">,</span> <span class="s2">&quot;mpg&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="saving-data-in-parquet">
+<h4>Saving data in Parquet<a class="headerlink" href="#saving-data-in-parquet" title="Permalink to this headline">¶</a></h4>
+<p>Finally we can save the processed data in Parquet format.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">io</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;ranked&quot;</span><span class="p">,</span> <span class="n">ranked</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Saving <code class="docutils literal notranslate"><span class="pre">None</span></code> to a dataset is not allowed!</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="02_kedro_io.html" class="btn btn-neutral float-right" title="Kedro IO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../04_kedro_project_setup/04_mini_kedro.html" class="btn btn-neutral" title="The mini-kedro Kedro starter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, QuantumBlack Visual Analytics Limited.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.17.5',
+            LANGUAGE:'en',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+      <script type="text/javascript" src="../_static/copybutton.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

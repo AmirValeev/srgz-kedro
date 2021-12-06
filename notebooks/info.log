@@ -1,0 +1,14 @@
+2021-10-25 12:22:46,337 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-10-25 12:22:46,346 - kedro.framework.session.session - WARNING - Unable to git describe /home/amir/anaconda3/University/MlOps/Kedro/srgz
+2021-10-25 15:46:20,264 - root - WARNING - Kedro extension was registered. Make sure you pass the project path to `%reload_kedro` or set it using `%init_kedro`.
+2021-10-25 15:51:21,452 - root - WARNING - Kedro extension was registered. Make sure you pass the project path to `%reload_kedro` or set it using `%init_kedro`.
+2021-10-25 15:52:15,750 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-10-25 15:52:15,757 - kedro.framework.session.session - WARNING - Unable to git describe /home/amir/anaconda3/University/MlOps/Kedro/srgz
+2021-10-25 16:07:05,777 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-10-25 16:07:05,786 - kedro.framework.session.session - WARNING - Unable to git describe /home/amir/anaconda3/University/MlOps/Kedro/srgz
+2021-10-25 18:30:14,329 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-10-25 18:30:14,340 - kedro.framework.session.session - WARNING - Unable to git describe /home/amir/anaconda3/University/MlOps/Kedro/srgz
+2021-11-17 10:49:11,149 - root - WARNING - Kedro extension was registered. Make sure you pass the project path to `%reload_kedro` or set it using `%init_kedro`.
+2021-11-17 10:51:23,991 - root - WARNING - Kedro extension was registered. Make sure you pass the project path to `%reload_kedro` or set it using `%init_kedro`.
+2021-11-17 10:52:01,186 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-11-17 11:21:44,910 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.

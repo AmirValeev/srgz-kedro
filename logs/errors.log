@@ -1,0 +1,28 @@
+2021-10-25 16:40:35,437 - kedro.pipeline.node - ERROR - Node `data_preparation([df1,df2,features]) -> [example_test_x,example_test_y,example_train_x,example_train_y]` failed with error: 
+data_preparation() got an unexpected keyword argument 'test_size'
+2021-10-25 16:42:07,058 - kedro.pipeline.node - ERROR - Node `data_preparation: data_preparation([df1,df2,features]) -> [example_test_x,example_test_y,example_train_x,example_train_y]` failed with error: 
+data_preparation() got an unexpected keyword argument 'test_size'
+2021-10-25 16:46:30,412 - kedro.pipeline.node - ERROR - Node `data_preparation: data_preparation([df1,df2,features]) -> [example_test_x,example_test_y,example_train_x,example_train_y]` failed with error: 
+data_preparation() got an unexpected keyword argument 'test_size'
+2021-10-25 16:48:15,330 - kedro.pipeline.node - ERROR - Node `data_preparation: data_preparation([df1,df2,features]) -> [example_test_x,example_test_y,example_train_x,example_train_y]` failed with error: 
+string indices must be integers
+2021-10-25 16:49:09,126 - kedro.pipeline.node - ERROR - Node `data_preparation: data_preparation([df1,df2,features]) -> [example_test_x,example_test_y,example_train_x,example_train_y]` failed with error: 
+Failed to save outputs of node data_preparation: data_preparation([df1,df2,features]) -> [example_test_x,example_test_y,example_train_x,example_train_y].
+The node's output keys {'x_train', 'x_test', 'y_test', 'y_train'} do not match with the returned output's keys {'train_y', 'test_x', 'test_y', 'train_x'}.
+2021-10-25 17:30:32,938 - kedro.pipeline.node - ERROR - Node `data_preparation: data_preparation([df1,df2,features]) -> [test_x,test_y,train_x,train_y]` failed with error: 
+Failed to save outputs of node data_preparation: data_preparation([df1,df2,features]) -> [test_x,test_y,train_x,train_y].
+The node's output keys {'y_test', 'y_train', 'x_test', 'x_train'} do not match with the returned output's keys {'train_y', 'test_y', 'train_x', 'test_x'}.
+2021-11-17 11:21:49,234 - kedro.pipeline.node - ERROR - Node `data_preparation: data_preparation([df1,df2,features]) -> [test_x,test_y,train_x,train_y]` failed with error: 
+Failed to save outputs of node data_preparation: data_preparation([df1,df2,features]) -> [test_x,test_y,train_x,train_y].
+The node's output keys {'y_train', 'X_train', 'X_test', 'y_test'} do not match with the returned output's keys {'train_x', 'train_y', 'test_x', 'test_y'}.
+2021-11-23 04:19:53,308 - kedro.pipeline.node - ERROR - Node `data_preparation: data_preparation([df1,df2,features]) -> [x_test,x_train,y_test,y_train]` failed with error: 
+can only concatenate str (not "tuple") to str
+2021-11-25 01:26:38,849 - kedro.pipeline.node - ERROR - Node `train_model_node: params_optimization([X_train,y_train]) -> [lgb_opt]` failed with error: 
+name 'torch' is not defined
+2021-11-28 18:34:13,515 - kedro.pipeline.node - ERROR - Node `train_model_node: params_optimization([X_train,y_train]) -> [lgb_opt]` failed with error: 
+name 'HPOpt' is not defined
+2021-11-29 11:04:37,133 - kedro.pipeline.node - ERROR - Node `train_model_node: params_optimization([X_train,y_train]) -> [lgb_opt]` failed with error: 
+name 'parameters' is not defined
+2021-11-29 11:10:17,713 - hyperopt.fmin - ERROR - job exception: "None of [Int64Index([216934, 216935, 216936, 216937, 216938, 216939, 216940, 216941,\n            216942, 216943,\n            ...\n            433858, 433859, 433860, 433861, 433862, 433863, 433864, 433865,\n            433866, 433867],\n           dtype='int64', length=216934)] are in the [columns]"
+2021-11-29 11:11:54,161 - hyperopt.fmin - ERROR - job exception: "None of [Int64Index([216934, 216935, 216936, 216937, 216938, 216939, 216940, 216941,\n            216942, 216943,\n            ...\n            433858, 433859, 433860, 433861, 433862, 433863, 433864, 433865,\n            433866, 433867],\n           dtype='int64', length=216934)] are in the [columns]"
+2021-12-02 10:41:27,851 - uvicorn.error - ERROR - [Errno 98] error while attempting to bind on address ('127.0.0.1', 4141): address already in use
